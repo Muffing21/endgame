@@ -1,6 +1,14 @@
 let config = {
-    type: Phaser.CANVAS,
-    width: 640,
-    heigth: 480
+    type: Phaser.AUTO,
+    width: 512,
+    heigth: 336,
+    physics: {
+        default: "arcade"
+    },
+    scene: [kitchen, restaurant, cooking]
 }
+
+
 let game = new Phaser.Game(config);
+
+let cursors;
