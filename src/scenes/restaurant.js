@@ -3,12 +3,15 @@ class restaurant extends Phaser.Scene {
         super('restaurantScene');
     }
 
-    preload(){
-        this.load.image('cook_idle', './assets/temp.png');
-        //this.load.spritesheet('cook_idle', './assets/Idle_Sprite_Sheet.png', {frameWidth: 256, frameHeight: 256, startFrame: 0, endFrame: 1});
-    }
+    // preload(){
+    //     //load
+    //     //this.load.atlas('link_atlas', 'linksheet.png', 'linkmap.json');
+    //     this.load.image('LoZ-overworld', 'LoZ-overworld-1.gif');
+    //     this.load.image('LoZ-overworld-up', 'LoZ-overworld-up.gif');
+    //     this.load.image('test','temp.png');
+    // }
 
-    create(){
+    create() {
         const gui = new dat.GUI();
 
         // variables and settings
@@ -16,51 +19,125 @@ class restaurant extends Phaser.Scene {
         this.VELOCITY = 150;
         this.ROOMWIDTH = 512;
         this.ROOMHEIGHT = 336;
+
+        // Set background color
+        this.cameras.main.setBackgroundColor('#666');
+
+        // Set main camera to be 3 rooms wide, 2 rooms tall
+        this.cameras.main.setBounds(0, 0, this.ROOMWIDTH*3, this.ROOMHEIGHT*2);
+
+        // Everything is 1:1 scale
+        this.cameras.main.setZoom(1.0);
     
-         // Set background color
-         this.cameras.main.setBackgroundColor('#666');
+        // setScroll moves the viewport to the starting room (1 down, 1 over)
+        this.cameras.main.setScroll(this.ROOMWIDTH, this.ROOMHEIGHT);
 
-         // Set main camera to be 3 rooms wide, 2 rooms tall
-         this.cameras.main.setBounds(0, 0, this.ROOMWIDTH, this.ROOMHEIGHT*2);
- 
-         // Everything is 1:1 scale
-         this.cameras.main.setZoom(1.0);
-     
-         // setScroll moves the viewport to the starting room (1 down, 1 over)
-         this.cameras.main.setScroll(this.ROOMWIDTH, this.ROOMHEIGHT);
- 
-         gui.addFolder("Main Camera");
-         gui.add(this.cameras.main, 'scrollX');
-         gui.add(this.cameras.main, 'scrollY');
-         gui.add(this.cameras.main, 'zoom');
+        gui.addFolder("Main Camera");
+        gui.add(this.cameras.main, 'scrollX');
+        gui.add(this.cameras.main, 'scrollY');
+        gui.add(this.cameras.main, 'zoom');
 
-         this.add.image(this.ROOMWIDTH, 0, 'LoZ-overworld-up').setOrigin(0);
-         this.add.image(this.ROOMWIDTH, this.ROOMHEIGHT, 'LoZ-overworld').setOrigin(0);
+        // Add overworld background images
+        //this.add.image(0, this.ROOMHEIGHT, 'LoZ-overworld-left').setOrigin(0);
+        this.add.image(this.ROOMWIDTH, this.ROOMHEIGHT, 'LoZ-overworld').setOrigin(0);
+        //this.add.image(this.ROOMWIDTH*2, this.ROOMHEIGHT, 'LoZ-overworld-right').setOrigin(0);
+        //this.add.image(0, 0, 'LoZ-overworld-upleft').setOrigin(0);
+        this.add.image(this.ROOMWIDTH, 0, 'LoZ-overworld-up').setOrigin(0);
+        // this.add.image(this.ROOMWIDTH*2, 0, 'LoZ-overworld-upright').setOrigin(0);
 
+        // Set up animations
+        //this.createAnimations();
 
-         // Set up animations
-        this.createAnimations();
+        // make player avatar 🧍
+        this.player = this.physics.add.sprite(this.ROOMWIDTH*1.5, this.ROOMHEIGHT*1.5, 'test').setScale(this.AVATAR_SCALE);
+        this.player.body.allowGravity = false;
+        this.player.body.setCollideWorldBounds(true);
+        this.player.body.onWorldBounds = true;    
 
-        this.player = this.physics.add.sprite(this.ROOMWIDTH*1.5, this.ROOMHEIGHT*1.5, 'link_atlas', 'idle_down_0001').setScale(this.AVATAR_SCALE);
+        // set world boundaries
+        this.physics.world.setBounds(this.ROOMWIDTH-this.player.displayWidth/2, this.ROOMHEIGHT-this.player.displayHeight/2, 
+            this.ROOMWIDTH+this.player.displayWidth, this.ROOMHEIGHT+this.player.displayHeight/2);
+        
+            //var roomHeight = this.ROOMHEIGHT*2;
+            //var roomWidth = this.ROOMWIDTH *1.5;
 
+        this.cameras.main.shake(250);
+        this.cameras.main.flash(250);
+        this.physics.world.on('worldbounds', (body, blockedUp, blockedDown, blockedLeft, blockedRight) => {
+            if (blockedUp) {
+                this.cameras.main.pan(
+                    this.ROOMWIDTH*1.5,
+                    this.ROOMHEIGHT*0.5,
+                    3000,
+                    'Linear'
+                );
+                //roomHeight = this.ROOMHEIGHT*0.5
+                this.physics.world.setBounds(this.ROOMWIDTH-this.player.displayWidth/2, 0, 
+                    this.ROOMWIDTH+this.player.displayWidth, this.ROOMHEIGHT+this.player.displayHeight/2);
+                }
+                
+            if(blockedDown){
+                this.cameras.main.pan(
+                    this.ROOMWIDTH*1.5, 
+                    this.ROOMHEIGHT*2,
+                    3000, 
+                    'Linear');
+                    this.physics.world.setBounds(this.ROOMWIDTH+this.player.displayWidth/2, this.ROOMHEIGHT-this.player.displayHeight/2, 
+                    this.ROOMWIDTH+this.player.displayWidth, this.ROOMHEIGHT+this.player.displayHeight/2);
+                }
 
-    
+            
+        });
+
+        // Use Phaser-provided cursor key creation function
+        cursors = this.input.keyboard.createCursorKeys();
+
     }
 
+    update() {
 
+        // check keyboard input
+        if(cursors.left.isDown) {
+            this.player.body.setVelocity(-this.VELOCITY, 0);
 
+            //this.player.anims.play('run_left', true);
 
+        } else if(cursors.right.isDown) {
+            this.player.body.setVelocity(this.VELOCITY, 0);
+            //this.player.anims.play('run_right', true);
 
+        } else if(cursors.up.isDown) {
+            this.player.body.setVelocity(0, -this.VELOCITY);
+            //this.player.anims.play('run_up', true);
 
+        } else if(cursors.down.isDown) {
+            this.player.body.setVelocity(0, this.VELOCITY);
+           // this.player.anims.play('run_down', true);
 
+        } else if (!cursors.right.isDown && !cursors.left.isDown && !cursors.up.isDown && !cursors.down.isDown) {
+            this.player.body.setVelocity(0, 0);
 
+            if (this.player.anims.isPlaying && this.player.anims.currentAnim.key === 'run_left') {
+                //this.player.anims.play('idle_left');
+            }
+            if (this.player.anims.isPlaying && this.player.anims.currentAnim.key === 'run_right') {
+               //this.player.anims.play('idle_right');
+            }
+            if (this.player.anims.isPlaying && this.player.anims.currentAnim.key === 'run_up') {
+                //this.player.anims.play('idle_up');
+            }
+            if (this.player.anims.isPlaying && this.player.anims.currentAnim.key === 'run_down') {
+                //this.player.anims.play('idle_down');
+            }
 
+            
+        }
 
+        // wrap physics object(s) .wrap(gameObject, padding)
+        this.physics.world.wrap(this.player, 0);
+    }
 
-
-
-
-
+    
 
 
 }
