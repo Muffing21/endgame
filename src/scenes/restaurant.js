@@ -54,6 +54,29 @@ class restaurant extends Phaser.Scene {
         this.player.body.setCollideWorldBounds(true);
         this.player.body.onWorldBounds = true;    
 
+        //make collision group
+        this.block = this.add.group();
+
+        //make collision blocks
+        this.solidBlock = this.physics.add.image(this.ROOMWIDTH-this.player.displayWidth/2, this.ROOMHEIGHT-this.player.displayHeight/2, 'block').setOrigin(0);
+        this.solidBlock.body.immovable = true;
+        this.solidBlock.body.allowGravity = false;
+        this.block.add(this.solidBlock);
+
+        this.solidBlock2 = this.physics.add.image(this.ROOMWIDTH+this.player.displayWidth*18, this.ROOMHEIGHT+this.player.displayHeight/2, 'block');
+        this.solidBlock2.body.immovable = true;
+        this.solidBlock2.body.allowGravity = false;
+        this.block.add(this.solidBlock2);
+
+        this.recipe = this.physics.add.sprite(this.ROOMWIDTH*1.5, this.ROOMHEIGHT*0.5, 'recipe').setScale(this.AVATAR_SCALE);
+        this.recipe.body.immovable = true;
+        this.recipe.body.allowGravity = false;
+        this.block.add(this.recipe);
+        
+
+        //collider
+        this.physics.add.collider(this.player, this.block);
+
         // set world boundaries
         this.physics.world.setBounds(this.ROOMWIDTH-this.player.displayWidth/2, this.ROOMHEIGHT-this.player.displayHeight/2, 
             this.ROOMWIDTH+this.player.displayWidth, this.ROOMHEIGHT+this.player.displayHeight/2);
@@ -71,7 +94,6 @@ class restaurant extends Phaser.Scene {
                     3000,
                     'Linear'
                 );
-                //roomHeight = this.ROOMHEIGHT*0.5
                 this.physics.world.setBounds(this.ROOMWIDTH-this.player.displayWidth/2, 0, 
                     this.ROOMWIDTH+this.player.displayWidth, this.ROOMHEIGHT+this.player.displayHeight/2);
                 }

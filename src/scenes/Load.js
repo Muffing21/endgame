@@ -14,6 +14,8 @@ class Load extends Phaser.Scene {
         this.load.image('LoZ-overworld', 'LoZ-overworld-1.gif');
         this.load.image('LoZ-overworld-up', 'LoZ-overworld-up.gif');
         this.load.image('test','temp.png');
+        this.load.image('block', 'block.png');
+        this.load.image('recipe', 'recipe.png');
     }
 
     create() {
