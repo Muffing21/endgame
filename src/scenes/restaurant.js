@@ -52,7 +52,9 @@ class restaurant extends Phaser.Scene {
         this.player = this.physics.add.sprite(this.ROOMWIDTH*1.5, this.ROOMHEIGHT*1.5, 'test').setScale(this.AVATAR_SCALE);
         this.player.body.allowGravity = false;
         this.player.body.setCollideWorldBounds(true);
-        this.player.body.onWorldBounds = true;    
+        this.player.body.onWorldBounds = true;
+        this.playerCollide = this.add.group();
+        this.playerCollide.add(this.player);
 
         //make collision group
         this.block = this.add.group();
@@ -68,14 +70,22 @@ class restaurant extends Phaser.Scene {
         this.solidBlock2.body.allowGravity = false;
         this.block.add(this.solidBlock2);
 
-        this.recipe = this.physics.add.sprite(this.ROOMWIDTH*1.5, this.ROOMHEIGHT*0.5, 'recipe').setScale(this.AVATAR_SCALE);
-        this.recipe.body.immovable = true;
-        this.recipe.body.allowGravity = false;
-        this.block.add(this.recipe);
+        this.recipeCollide = this.add.group();
+        this.recipe = this.physics.add.image(this.ROOMWIDTH*1.5, this.ROOMHEIGHT*0.5, 'recipe').setScale(this.AVATAR_SCALE);
+         this.recipe.body.immovable = true;
+         this.recipe.body.allowGravity = false;
+        this.recipeCollide.add(this.recipe);
         
-
+        this.collided = false;
         //collider
+        
+        this.physics.add.collider(this.player, this.recipeCollide);
+        this.physics.add.existing(this.player);
+        this.physics.add.existing(this.recipe);
         this.physics.add.collider(this.player, this.block);
+
+
+        this.showRecipe = false;
 
         // set world boundaries
         this.physics.world.setBounds(this.ROOMWIDTH-this.player.displayWidth/2, this.ROOMHEIGHT-this.player.displayHeight/2, 
@@ -118,6 +128,19 @@ class restaurant extends Phaser.Scene {
 
     update() {
 
+        let scoreConfig = {
+            fontFamily: 'serif',
+            fontSize: '28px',
+            backgroundColor: '#ADD8E6',
+            color: '#843605',
+            align: 'right',
+            padding: {
+                top: 10,
+                bottom: 10,
+            },
+            //fixedWidth: 
+        }
+
         // check keyboard input
         if(cursors.left.isDown) {
             this.player.body.setVelocity(-this.VELOCITY, 0);
@@ -155,11 +178,15 @@ class restaurant extends Phaser.Scene {
             
         }
 
+        
+        if(this.physics.add.overlap(this.player, this.recipeCollide)){
+            console.log('collided');
+            this.add.text(game.config.width/2, game.config.height/2, "Chocolate Cake Recipe:", scoreConfig).setOrigin(0.5);
+        }
+           
+
+
         // wrap physics object(s) .wrap(gameObject, padding)
         this.physics.world.wrap(this.player, 0);
     }
-
-    
-
-
 }

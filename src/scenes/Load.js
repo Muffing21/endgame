@@ -16,6 +16,7 @@ class Load extends Phaser.Scene {
         this.load.image('test','temp.png');
         this.load.image('block', 'block.png');
         this.load.image('recipe', 'recipe.png');
+        this.load.image('cooking_bg', 'cooking_bg.jpg')
     }
 
     create() {
