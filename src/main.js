@@ -27,7 +27,9 @@ let config = {
             }
         }
     },
-    scene: [Load, restaurant ]
+    scene: [Load, restaurant , ingredients, stir]
 };
 
 let game = new Phaser.Game(config);
+
+let keyUp, keyDown, keyRight, keyLeft, keySPACE, keyZ;

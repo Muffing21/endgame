@@ -16,7 +16,19 @@ class Load extends Phaser.Scene {
         this.load.image('test','temp.png');
         this.load.image('block', 'block.png');
         this.load.image('recipe', 'recipe.png');
-        this.load.image('cooking_bg', 'cooking_bg.jpg')
+        this.load.image('cooking_bg', 'cooking_bg.jpg');
+        
+        //character
+        this.load.spritesheet('idle', 'idle.png', {frameWidth: 256, frameHeight: 256, startFrame: 0, endFrame: 1});
+        this.load.spritesheet('walk_up', 'walk_up.png', {frameWidth: 256, frameHeight: 256, startFrame: 0, endFrame: 3});
+        this.load.spritesheet('walk_left', 'walk_left.png', {frameWidth: 256, frameHeight: 256, startFrame: 0, endFrame: 3});
+        this.load.spritesheet('walk_right', 'walk_right.png', {frameWidth: 256, frameHeight: 256, startFrame: 0, endFrame: 3});
+        this.load.spritesheet('walk_down', 'walk_down.png', {frameWidth: 256, frameHeight: 256, startFrame: 0, endFrame: 3});
+
+        //stirring bowl sprite sheet
+        this.load.spritesheet('stir', 'stir.png', {frameWidth: 256, frameHeight: 256, startFrame: 1, endFrame: 5});
+        this.load.spritesheet('egg', 'egg.png', {frameWidth: 256, frameHeight: 256, startFrame: 0, endFrame: 2});
+        this.load.spritesheet('milk', 'milk.png', {frameWidth: 256, frameHeight: 256, startFrame: 0, endFrame: 3});
     }
 
     create() {

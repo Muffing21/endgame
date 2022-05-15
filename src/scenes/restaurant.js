@@ -32,10 +32,10 @@ class restaurant extends Phaser.Scene {
         // setScroll moves the viewport to the starting room (1 down, 1 over)
         this.cameras.main.setScroll(this.ROOMWIDTH, this.ROOMHEIGHT);
 
-        gui.addFolder("Main Camera");
-        gui.add(this.cameras.main, 'scrollX');
-        gui.add(this.cameras.main, 'scrollY');
-        gui.add(this.cameras.main, 'zoom');
+        //gui.addFolder("Main Camera");
+        //gui.add(this.cameras.main, 'scrollX');
+        //gui.add(this.cameras.main, 'scrollY');
+        //gui.add(this.cameras.main, 'zoom');
 
         // Add overworld background images
         //this.add.image(0, this.ROOMHEIGHT, 'LoZ-overworld-left').setOrigin(0);
@@ -48,13 +48,48 @@ class restaurant extends Phaser.Scene {
         // Set up animations
         //this.createAnimations();
 
-        // make player avatar 🧍
-        this.player = this.physics.add.sprite(this.ROOMWIDTH*1.5, this.ROOMHEIGHT*1.5, 'test').setScale(this.AVATAR_SCALE);
+        // make player avatar and animations
+        this.player = this.physics.add.sprite(this.ROOMWIDTH*1.5, this.ROOMHEIGHT*1.5, 'idle').setScale(this.AVATAR_SCALE);
         this.player.body.allowGravity = false;
         this.player.body.setCollideWorldBounds(true);
         this.player.body.onWorldBounds = true;
         this.playerCollide = this.add.group();
         this.playerCollide.add(this.player);
+
+        this.anims.create({
+            key: 'idle',
+            frames: this.anims.generateFrameNumbers('idle', {frames: [0, 1]}),
+            framerate: 4,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'walk_down',
+            frames: this.anims.generateFrameNumbers('walk_down', {frames: [0, 1, 2, 3]}),
+            framerate: 8,
+            repeat: 0
+        });
+
+        this.anims.create({
+            key: 'walk_left',
+            frames: this.anims.generateFrameNumbers('walk_left', {frames: [0, 1, 2, 3]}),
+            framerate: 8,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'walk_right',
+            frames: this.anims.generateFrameNumbers('walk_right', {frames: [0, 1, 2, 3]}),
+            framerate: 8,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'walk_up',
+            frames: this.anims.generateFrameNumbers('walk_up', {frames: [0, 1, 2, 3]}),
+            framerate: 8,
+            repeat: -1
+        });
 
         //make collision group
         this.block = this.add.group();
@@ -70,18 +105,18 @@ class restaurant extends Phaser.Scene {
         this.solidBlock2.body.allowGravity = false;
         this.block.add(this.solidBlock2);
 
-        this.recipeCollide = this.add.group();
-        this.recipe = this.physics.add.image(this.ROOMWIDTH*1.5, this.ROOMHEIGHT*0.5, 'recipe').setScale(this.AVATAR_SCALE);
+        //this.recipeCollide = this.add.group();
+        this.recipe = this.physics.add.image(this.ROOMWIDTH*1.5, (this.ROOMHEIGHT*1.5)+100, 'recipe').setScale(this.AVATAR_SCALE);
          this.recipe.body.immovable = true;
          this.recipe.body.allowGravity = false;
-        this.recipeCollide.add(this.recipe);
+        //this.recipeCollide.add(this.recipe);
         
         this.collided = false;
+        
         //collider
         
-        this.physics.add.collider(this.player, this.recipeCollide);
-        this.physics.add.existing(this.player);
-        this.physics.add.existing(this.recipe);
+        //this.physics.add.collider(this.player, this.recipe);
+        
         this.physics.add.collider(this.player, this.block);
 
 
@@ -124,15 +159,36 @@ class restaurant extends Phaser.Scene {
         // Use Phaser-provided cursor key creation function
         cursors = this.input.keyboard.createCursorKeys();
 
+        keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        keyZ = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
+
+        //instructions
+        let scoreConfig = {
+            fontFamily: 'serif',
+            fontSize: '16px',
+            backgroundColor: '#ADD8E6',
+            color: '#000000',
+            align: 'right',
+            padding: {
+                top: 10,
+                bottom: 10,
+            },
+            //fixedWidth: 
+        }
+        this.add.text(this.ROOMWIDTH*1.5-200, this.ROOMHEIGHT*1.5+125, 'collide with blue block to get recipe, SPACEBAR to pour ingredients', scoreConfig);
+
+
     }
 
     update() {
 
+        this.player.anims.play('idle');
+
         let scoreConfig = {
             fontFamily: 'serif',
-            fontSize: '28px',
+            fontSize: '16px',
             backgroundColor: '#ADD8E6',
-            color: '#843605',
+            color: '#000000',
             align: 'right',
             padding: {
                 top: 10,
@@ -145,19 +201,19 @@ class restaurant extends Phaser.Scene {
         if(cursors.left.isDown) {
             this.player.body.setVelocity(-this.VELOCITY, 0);
 
-            //this.player.anims.play('run_left', true);
+            this.player.anims.play('walk_left', true);
 
         } else if(cursors.right.isDown) {
             this.player.body.setVelocity(this.VELOCITY, 0);
-            //this.player.anims.play('run_right', true);
+            this.player.anims.play('walk_right', true);
 
         } else if(cursors.up.isDown) {
             this.player.body.setVelocity(0, -this.VELOCITY);
-            //this.player.anims.play('run_up', true);
+            this.player.anims.play('walk_up', true);
 
         } else if(cursors.down.isDown) {
             this.player.body.setVelocity(0, this.VELOCITY);
-           // this.player.anims.play('run_down', true);
+            this.player.anims.play('walk_down', true);
 
         } else if (!cursors.right.isDown && !cursors.left.isDown && !cursors.up.isDown && !cursors.down.isDown) {
             this.player.body.setVelocity(0, 0);
@@ -179,10 +235,23 @@ class restaurant extends Phaser.Scene {
         }
 
         
-        if(this.physics.add.overlap(this.player, this.recipeCollide)){
-            console.log('collided');
-            this.add.text(game.config.width/2, game.config.height/2, "Chocolate Cake Recipe:", scoreConfig).setOrigin(0.5);
+        if(this.physics.overlap(this.player, this.recipe)){
+            this.add.text(this.ROOMWIDTH*1.5, this.ROOMHEIGHT*1.5, "Chocolate Cake Recipe:", scoreConfig).setOrigin(0.5);
+            this.add.text(this.ROOMWIDTH*1.5, this.ROOMHEIGHT*1.5+50, "1x milk\n1x flour\n1x egg", scoreConfig).setOrigin(0.5);
+            this.add.text(this.ROOMWIDTH*1.5, this.ROOMHEIGHT*1.5+100, "Press 'z' to back", scoreConfig).setOrigin(0.5);
+
+            this.player.body.setVelocity(0, 0);
+            
+            if(Phaser.Input.Keyboard.JustDown(keyZ)){
+                this.scene.start('restaurantScene');
+            }
+            
         }
+
+        if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
+            this.scene.start('ingredientsScene');
+        }
+
            
 
 
