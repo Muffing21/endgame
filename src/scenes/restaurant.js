@@ -3,15 +3,16 @@ class restaurant extends Phaser.Scene {
         super('restaurantScene');
     }
 
-    // preload(){
-    //     //load
-    //     //this.load.atlas('link_atlas', 'linksheet.png', 'linkmap.json');
-    //     this.load.image('LoZ-overworld', 'LoZ-overworld-1.gif');
-    //     this.load.image('LoZ-overworld-up', 'LoZ-overworld-up.gif');
-    //     this.load.image('test','temp.png');
-    // }
+    preload(){
+        //menu bgm
+        this.load.audio('menu_bgm', './assets/t.wav');
+    }
 
     create() {
+        //add background music
+        this.music = this.sound.add('menu_bgm', {mute: false, volume: 1.0, rate: 1, loop: true});
+        this.music.play();
+        
         const gui = new dat.GUI();
 
         // variables and settings
