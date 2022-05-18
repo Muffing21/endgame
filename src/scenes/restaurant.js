@@ -9,6 +9,10 @@ class restaurant extends Phaser.Scene {
     }
 
     create() {
+
+        //we need to make variables and stuff for collecting thee ingredients
+
+
         //add background music
         this.music = this.sound.add('menu_bgm', {mute: false, volume: 1.0, rate: 1, loop: true});
         this.music.play();
@@ -231,8 +235,6 @@ class restaurant extends Phaser.Scene {
             if (this.player.anims.isPlaying && this.player.anims.currentAnim.key === 'run_down') {
                 //this.player.anims.play('idle_down');
             }
-
-            
         }
 
         
@@ -244,17 +246,16 @@ class restaurant extends Phaser.Scene {
             this.player.body.setVelocity(0, 0);
             
             if(Phaser.Input.Keyboard.JustDown(keyZ)){
+                this.music.stop();
                 this.scene.start('restaurantScene');
             }
             
         }
 
         if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
+            this.music.stop();
             this.scene.start('ingredientsScene');
         }
-
-           
-
 
         // wrap physics object(s) .wrap(gameObject, padding)
         this.physics.world.wrap(this.player, 0);
