@@ -75,6 +75,7 @@ class stir extends Phaser.Scene{
             this.up_pressed=false;
             this.right_pressed=false;
             this.down_pressed=false;
+            this.bowl.anims.play('stir');
             
         }
     }

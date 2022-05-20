@@ -166,6 +166,10 @@ class restaurant extends Phaser.Scene {
 
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         keyZ = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
+        keyUp = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+        keyLeft = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
+        keyRight = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+        keyDown = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
 
         //instructions
         let scoreConfig = {
@@ -205,10 +209,12 @@ class restaurant extends Phaser.Scene {
         // check keyboard input
         if(cursors.left.isDown) {
             this.player.body.setVelocity(-this.VELOCITY, 0);
-
             this.player.anims.play('walk_left', true);
 
-        } else if(cursors.right.isDown) {
+
+        } 
+        
+        else if(cursors.right.isDown) {
             this.player.body.setVelocity(this.VELOCITY, 0);
             this.player.anims.play('walk_right', true);
 
