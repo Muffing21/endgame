@@ -10,13 +10,14 @@ class Load extends Phaser.Scene {
         // Since the asset keys can be used in any scene, can load here
         // and use in any other scene
 
-        // Load atlas here
+        // Load bg
         this.load.image('LoZ-overworld', 'LoZ-overworld-1.gif');
         this.load.image('LoZ-overworld-up', 'LoZ-overworld-up.gif');
         this.load.image('test','temp.png');
         this.load.image('block', 'block.png');
         this.load.image('recipe', 'recipe.png');
         this.load.image('cooking_bg', 'cooking_bg.jpg');
+        this.load.image('temp_bg', 'temp_bg.png');
         
         //character
         this.load.spritesheet('idle', 'idle.png', {frameWidth: 256, frameHeight: 256, startFrame: 0, endFrame: 1});
@@ -29,6 +30,9 @@ class Load extends Phaser.Scene {
         this.load.spritesheet('stir', 'stir.png', {frameWidth: 256, frameHeight: 256, startFrame: 1, endFrame: 5});
         this.load.spritesheet('egg', 'egg.png', {frameWidth: 256, frameHeight: 256, startFrame: 0, endFrame: 2});
         this.load.spritesheet('milk', 'milk.png', {frameWidth: 256, frameHeight: 256, startFrame: 0, endFrame: 3});
+
+        //Ingredient Gathering Blocks
+        
     }
 
     create() {

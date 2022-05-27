@@ -18,8 +18,8 @@ let cursors;
 // main game object
 let config = {
     type: Phaser.WEBGL,
-    width: 512,
-    height: 336,
+    width: 1024,
+    height: 672,
     physics: {
         default: 'arcade',
         arcade: {

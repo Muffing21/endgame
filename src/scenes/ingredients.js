@@ -7,6 +7,7 @@ class ingredients extends Phaser.Scene{
         this.load.path = 'assets/';
         this.load.image('background','LoZ-overworld-up.gif');
         this.load.image('character','temp.png');
+        this.load.image('temp_bg', 'temp_bg.png');
     }
     
 
@@ -15,8 +16,8 @@ class ingredients extends Phaser.Scene{
         this.score=0;
         
         this.AVATAR_SCALE = 0.25;
-        this.ROOMWIDTH = 512;
-        this.ROOMHEIGHT = 336;
+        this.ROOMWIDTH = 1024;
+        this.ROOMHEIGHT = 672;
 
         //config for texts
         let scoreConfig = {
@@ -36,7 +37,7 @@ class ingredients extends Phaser.Scene{
         //     key: 'pour_milk'
         //     frames: this.anims.generateFrameNumbers('pour_milk', {frames:})
         // })
-        this.add.image(this.ROOMWIDTH, this.ROOMHEIGHT,'background').setOrigin(0);
+        this.add.image(this.ROOMWIDTH, 0,'temp_bg').setOrigin(0);
         //game.physics.startSystem(Phaser.Physics.ARCADE);
         this.scoreText=this.add.text(20,20,'SCORE:0', scoreConfig);
         this.cashier=this.add.sprite(150,300,'stir');

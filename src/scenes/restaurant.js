@@ -22,8 +22,8 @@ class restaurant extends Phaser.Scene {
         // variables and settings
         this.AVATAR_SCALE = 0.25;
         this.VELOCITY = 150;
-        this.ROOMWIDTH = 512;
-        this.ROOMHEIGHT = 336;
+        this.ROOMWIDTH = 1024;
+        this.ROOMHEIGHT = 672;
 
         // Set background color
         this.cameras.main.setBackgroundColor('#666');
@@ -44,10 +44,10 @@ class restaurant extends Phaser.Scene {
 
         // Add overworld background images
         //this.add.image(0, this.ROOMHEIGHT, 'LoZ-overworld-left').setOrigin(0);
-        this.add.image(this.ROOMWIDTH, this.ROOMHEIGHT, 'LoZ-overworld').setOrigin(0);
+        this.add.image(this.ROOMWIDTH, this.ROOMHEIGHT, 'temp_bg').setOrigin(0);
         //this.add.image(this.ROOMWIDTH*2, this.ROOMHEIGHT, 'LoZ-overworld-right').setOrigin(0);
         //this.add.image(0, 0, 'LoZ-overworld-upleft').setOrigin(0);
-        this.add.image(this.ROOMWIDTH, 0, 'LoZ-overworld-up').setOrigin(0);
+        this.add.image(this.ROOMWIDTH, 0, 'temp_bg').setOrigin(0);
         // this.add.image(this.ROOMWIDTH*2, 0, 'LoZ-overworld-upright').setOrigin(0);
 
         // Set up animations
@@ -115,6 +115,11 @@ class restaurant extends Phaser.Scene {
          this.recipe.body.immovable = true;
          this.recipe.body.allowGravity = false;
         //this.recipeCollide.add(this.recipe);
+
+        this.Fridge1 = this.physics.add.image(this.ROOMWIDTH-this.player.displayWidth/2, this.ROOMHEIGHT-this.player.displayHeight/2, 'block').setOrigin(0);
+        this.Fridge1.body.immovable = true;
+        this.Fridge1.body.allowGravity = false;
+        this.block.add(this.Fridge1);
         
         this.collided = false;
         
