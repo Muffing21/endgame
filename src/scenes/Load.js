@@ -32,6 +32,7 @@ class Load extends Phaser.Scene {
         this.load.spritesheet('milk', 'milk.png', {frameWidth: 256, frameHeight: 256, startFrame: 0, endFrame: 3});
 
         //Ingredient Gathering Blocks
+
         
     }
 

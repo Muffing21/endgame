@@ -8,7 +8,7 @@ class restaurant extends Phaser.Scene {
         this.load.audio('menu_bgm', './assets/t.wav');
     }
 
-    create() {
+    create(data) {
 
         //we need to make variables and stuff for collecting thee ingredients
 
@@ -24,6 +24,9 @@ class restaurant extends Phaser.Scene {
         this.VELOCITY = 150;
         this.ROOMWIDTH = 1024;
         this.ROOMHEIGHT = 672;
+
+        //timer
+        this.time = 0;
 
         // Set background color
         this.cameras.main.setBackgroundColor('#666');
@@ -72,7 +75,7 @@ class restaurant extends Phaser.Scene {
             key: 'walk_down',
             frames: this.anims.generateFrameNumbers('walk_down', {frames: [0, 1, 2, 3]}),
             framerate: 8,
-            repeat: 0
+            repeat: -1
         });
 
         this.anims.create({
@@ -190,11 +193,30 @@ class restaurant extends Phaser.Scene {
             //fixedWidth: 
         }
         this.add.text(this.ROOMWIDTH*1.5-200, this.ROOMHEIGHT*1.5+125, 'collide with blue block to get recipe, SPACEBAR to pour ingredients', scoreConfig);
-
+        
+        
+        //timer for the player
+        scoreConfig.color = '#FFFF00';
+        //this.time = data;
+        this.currentTime = this.add.text(this.ROOMWIDTH*1.5-200, this.ROOMHEIGHT*1.5+150, this.time, scoreConfig);
+        
+            
+        this.recipe1 = this.add.text(this.ROOMWIDTH*1.5, this.ROOMHEIGHT*1.5, "Chocolate Cake Recipe:", scoreConfig).setOrigin(0.5)
+        this.recipe2 = this.add.text(this.ROOMWIDTH*1.5, this.ROOMHEIGHT*1.5+50, "1x milk\n1x flour\n1x egg", scoreConfig).setOrigin(0.5)
+        this.recipe3 = this.add.text(this.ROOMWIDTH*1.5, this.ROOMHEIGHT*1.5+100, "Press 'z' to back", scoreConfig).setOrigin(0.5)
+        this.recipe1.visible = false;
+            this.recipe2.visible = false;
+            this.recipe3.visible = false;
 
     }
 
-    update() {
+    update(time, delta, data) {
+        //increase timer
+        console.log(this.time);
+        this.time += delta;
+        this.currentTime.text = (this.time/1000).toFixed(2);
+            
+                
 
         this.player.anims.play('idle');
 
@@ -221,7 +243,7 @@ class restaurant extends Phaser.Scene {
         
         else if(cursors.right.isDown) {
             this.player.body.setVelocity(this.VELOCITY, 0);
-            this.player.anims.play('walk_right', true);
+            this.player.anims.play('walk_right');
 
         } else if(cursors.up.isDown) {
             this.player.body.setVelocity(0, -this.VELOCITY);
@@ -234,38 +256,42 @@ class restaurant extends Phaser.Scene {
         } else if (!cursors.right.isDown && !cursors.left.isDown && !cursors.up.isDown && !cursors.down.isDown) {
             this.player.body.setVelocity(0, 0);
 
-            if (this.player.anims.isPlaying && this.player.anims.currentAnim.key === 'run_left') {
-                //this.player.anims.play('idle_left');
-            }
-            if (this.player.anims.isPlaying && this.player.anims.currentAnim.key === 'run_right') {
-               //this.player.anims.play('idle_right');
-            }
-            if (this.player.anims.isPlaying && this.player.anims.currentAnim.key === 'run_up') {
-                //this.player.anims.play('idle_up');
-            }
-            if (this.player.anims.isPlaying && this.player.anims.currentAnim.key === 'run_down') {
-                //this.player.anims.play('idle_down');
-            }
+            // if (this.player.anims.isPlaying && this.player.anims.currentAnim.key === 'run_left') {
+            //     //this.player.anims.play('idle_left');
+            // }
+            // if (this.player.anims.isPlaying && this.player.anims.currentAnim.key === 'run_right') {
+            //    //this.player.anims.play('idle_right');
+            // }
+            // if (this.player.anims.isPlaying && this.player.anims.currentAnim.key === 'run_up') {
+            //     //this.player.anims.play('idle_up');
+            // }
+            // if (this.player.anims.isPlaying && this.player.anims.currentAnim.key === 'run_down') {
+            //     //this.player.anims.play('idle_down');
+            // }
         }
 
         
         if(this.physics.overlap(this.player, this.recipe)){
-            this.add.text(this.ROOMWIDTH*1.5, this.ROOMHEIGHT*1.5, "Chocolate Cake Recipe:", scoreConfig).setOrigin(0.5);
-            this.add.text(this.ROOMWIDTH*1.5, this.ROOMHEIGHT*1.5+50, "1x milk\n1x flour\n1x egg", scoreConfig).setOrigin(0.5);
-            this.add.text(this.ROOMWIDTH*1.5, this.ROOMHEIGHT*1.5+100, "Press 'z' to back", scoreConfig).setOrigin(0.5);
+            this.recipe1.visible = true;
+            this.recipe2.visible = true;
+            this.recipe3.visible = true;
 
             this.player.body.setVelocity(0, 0);
             
             if(Phaser.Input.Keyboard.JustDown(keyZ)){
-                this.music.stop();
-                this.scene.start('restaurantScene');
+                //this.music.stop();
+                this.recipe1.visible = false;
+                this.recipe2.visible = false;
+                this.recipe3.visible = false;
+                this.player.setPosition(this.ROOMWIDTH*1.5, this.ROOMHEIGHT*1.5);
+                //this.scene.start('restaurantScene', data);
             }
             
         }
 
         if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
             this.music.stop();
-            this.scene.start('ingredientsScene');
+            this.scene.start('ingredientsScene', this.time);
         }
 
         // wrap physics object(s) .wrap(gameObject, padding)

@@ -5,7 +5,7 @@ class Menu extends Phaser.Scene {
 
     preload() {
         //load the background image.
-        this.load.image('menuBackground', './assets/menubackground.png');
+        this.load.image('menu_bg', './assets/menu_bg.png');
     }
 
     create() {
@@ -34,7 +34,7 @@ class Menu extends Phaser.Scene {
         // this.music.play();
         
         //show background
-        this.add.tileSprite(0, 0, 1200, 700, 'menuBackground').setOrigin(0, 0);
+        this.add.tileSprite(0, 0, 1200, 700, 'menu_bg').setOrigin(0, 0);
 
         // show menu text
         this.add.text(centerX, centerY/3 - borderUISize - borderPadding, 'CMPM120 EndGame!', titleConfig1).setOrigin(0.5);

@@ -30,8 +30,24 @@ let config = {
             }
         }
     },
-    scene: [Menu, Load, restaurant, ingredients, stir]
+    scene: [Menu, Load, restaurant, ingredients, stir, grade]
 };
+
+let scoreConfig = {
+    fontFamily: 'serif',
+    fontSize: '16px',
+    backgroundColor: '#ADD8E6',
+    color: '#000000',
+    align: 'right',
+    padding: {
+        top: 10,
+        bottom: 10,
+    },
+    //fixedWidth: 
+}
+this.time = 0;
+this.gameOver = false;
+this.playerGrade == 100;
 
 let game = new Phaser.Game(config);
 

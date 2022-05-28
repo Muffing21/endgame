@@ -14,25 +14,14 @@ class stir extends Phaser.Scene{
     //     this.load.image('background','LoZ-overworld-up.gif');
     //     this.load.image('character','temp.png');
     // }
-    create(){
+    create(data){
         keyUp = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         keyLeft = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRight = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
         keyDown = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
-        let scoreConfig = {
-            fontFamily: 'Courier',
-            fontSize: '28px',
-            backgroundColor: '#F3B141',
-            color: '#843605',
-            align: 'right',
-            padding: {
-                top: 5,
-                bottom: 5,
-            },
-            fixedWidth: 100
-        }
-        this.counter_text=this.add.text(100,300,this.counter,scoreConfig);
-        this.add.text(200,300, 'press left, up, right,\nand down arrow to stir');
+        
+        this.counter_text=this.add.text(config.width/2, config.height/2-200,this.counter,scoreConfig);
+        this.add.text(config.width/2, config.height/2+200, 'press left, up, right,\nand down arrow to stir');
 
         //add bowl
         this.bowl = this.add.sprite(config.width/2, config.height/2, 'stir');
@@ -45,9 +34,18 @@ class stir extends Phaser.Scene{
             repeat: 0
         });
         
+        this.time = data
+        //timer
+        this.currentTime = this.add.text(20, 20, this.time, scoreConfig);
+
+        //keyboard
+        keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+
     }
-    update(){
+    update(time, delta){
         
+        this.time += delta;
+        this.currentTime.text = (this.time/1000).toFixed(2);
         
         if(Phaser.Input.Keyboard.JustDown(keyUp)&&this.right_pressed==false&&this.left_pressed==false&&this.up_pressed==false&&this.down_pressed==false){
             this.counter++;
@@ -77,6 +75,9 @@ class stir extends Phaser.Scene{
             this.down_pressed=false;
             this.bowl.anims.play('stir');
             
+        }
+        if(this.counter == 50){
+            this.scene.start('gradeScene', this.time);
         }
     }
 }
