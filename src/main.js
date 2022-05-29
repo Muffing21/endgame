@@ -30,7 +30,7 @@ let config = {
             }
         }
     },
-    scene: [Menu, Load, restaurant, ingredients, stir, grade]
+    scene: [Menu, Load, restaurant, ingredients, stir, baking, grade]
 };
 
 let scoreConfig = {

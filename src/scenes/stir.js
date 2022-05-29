@@ -15,16 +15,19 @@ class stir extends Phaser.Scene{
     //     this.load.image('character','temp.png');
     // }
     create(data){
+        this.bg = this.add.image(0, 0, 'kitchenTable').setOrigin(0);
         keyUp = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         keyLeft = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRight = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
         keyDown = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
         
         this.counter_text=this.add.text(config.width/2, config.height/2-200,this.counter,scoreConfig);
-        this.add.text(config.width/2, config.height/2+200, 'press left, up, right,\nand down arrow to stir');
+        this.add.text(config.width/2, config.height/2+200, 'press left, up, right,\nand down arrow to stir to 50');
 
         //add bowl
         this.bowl = this.add.sprite(config.width/2, config.height/2, 'stir');
+        //bg
+        
 
         //create our animation
         this.anims.create({
@@ -77,7 +80,7 @@ class stir extends Phaser.Scene{
             
         }
         if(this.counter == 50){
-            this.scene.start('gradeScene', this.time);
+            this.scene.start('bakingScene', this.time);
         }
     }
 }
