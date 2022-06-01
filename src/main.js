@@ -55,7 +55,7 @@ let game = new Phaser.Game(config);
 let borderUISize = game.config.height / 15;
 let borderPadding = borderUISize / 3;
 
-let keyUp, keyDown, keyRight, keyLeft, keySPACE, keyZ;
+let keyUp, keyDown, keyRight, keyLeft, keySPACE, keyZ, keyX;
 
 // // Jim Whitehead, based on Movement Studies by Nathan Altice
 // // Updated: 5/1/2022

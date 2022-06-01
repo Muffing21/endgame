@@ -39,6 +39,19 @@ class Load extends Phaser.Scene {
         this.load.spritesheet('stir', 'stir.png', {frameWidth: 256, frameHeight: 256, startFrame: 1, endFrame: 5});
         this.load.spritesheet('egg', 'egg.png', {frameWidth: 256, frameHeight: 256, startFrame: 0, endFrame: 2});
         this.load.spritesheet('milk', 'milk.png', {frameWidth: 256, frameHeight: 256, startFrame: 0, endFrame: 3});
+
+        //restaurant scene
+        this.load.image('eggFridge', 'eggFridge.png');
+        this.load.image('sugarFridge', 'sugarFridge.png');
+        this.load.image('flourFridge', 'flourFridge.png');
+        this.load.image('milkFridge', 'milkFridge.png');
+        this.load.image('saltFridge', 'saltFridge.png');
+        this.load.image('vanillaFridge', 'vanillaFridge.png');
+        this.load.image('sodaFridge', 'sodaFridge.png');
+        this.load.image('powderFridge', 'powderFridge.png');
+
+        //chef
+        this.load.image('chef', 'chef.png');
     }
 
     create() {
