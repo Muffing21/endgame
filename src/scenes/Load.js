@@ -52,6 +52,16 @@ class Load extends Phaser.Scene {
 
         //chef
         this.load.image('chef', 'chef.png');
+
+        //decorating scene assets
+        this.load.image('chocolate', 'chocolate.png');
+        this.load.image('strawberry', 'strawberry.png');
+        this.load.image('cherry', 'cherry.png');
+        this.load.image('cookie', 'cookie.png');
+        this.load.image('candle', 'candle.png');
+        this.load.image('carrot', 'carrot.png');
+        this.load.image('cake', 'cake.png');
+
     }
 
     create() {

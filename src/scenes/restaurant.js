@@ -301,7 +301,7 @@ class restaurant extends Phaser.Scene {
         this.currentTime = this.add.text(this.ROOMWIDTH+20, this.ROOMHEIGHT+20, this.time, scoreConfig);
         
             
-        this.recipe1 = this.add.text(this.ROOMWIDTH*1.5-300, this.ROOMHEIGHT*1.5, "Follow this Chocolate Cake Recipe:", scoreConfig)
+        this.recipe1 = this.add.text(this.ROOMWIDTH*1.5-300, this.ROOMHEIGHT*1.5, "Follow this Vanilla Cake Recipe:", scoreConfig)
         this.recipe2 = this.add.text(this.ROOMWIDTH*1.5-300, this.ROOMHEIGHT*1.5+50, "1x milk\n1x flour\n1x egg\n1x salt\n1x vanilla\n1x milk\n1x sugar\n1x soda\n1x powder", scoreConfig)
         this.recipe3 = this.add.text(this.ROOMWIDTH*1.5-250, this.ROOMHEIGHT*1.5+250, "Press 'z' to back", scoreConfig).setOrigin(0.5)
         this.recipe1.visible = false;

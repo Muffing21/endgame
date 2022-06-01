@@ -19,7 +19,7 @@ class grade extends Phaser.Scene {
         this.add.image(config.width/2, config.height/2, 'chef');
         //this.currentTime = (this.time/1000).toFixed(2);
         this.currentTime = this.add.text(config.width/2, config.height/2+200, (this.time/1000).toFixed(2), scoreConfig);
-        this.add.text(config.width/2-30, config.height/2+200, 'Your Time:', scoreConfig);
+        this.add.text(config.width/2-150, config.height/2+200, 'Your Time:', scoreConfig);
 
 
     }
@@ -54,7 +54,7 @@ class grade extends Phaser.Scene {
             this.add.text(config.width/2, config.height/2, 'D- RANK: How?!', scoreConfig).setOrigin(0.5);
         }
         if(this.time > this.defaultTime+40000){
-            this.add.text(config.width/2, config.height/2, 'F RANK: Try Harder!', scoreConfig).setOrigin(0.5);
+            this.add.text(config.width/2, config.height/2, 'F RANK: You Donkey!', scoreConfig).setOrigin(0.5);
         }
 
         if(Phaser.Input.Keyboard.JustDown(keyZ)){

@@ -61,7 +61,7 @@ class baking extends Phaser.Scene{
         if(Phaser.Input.Keyboard.JustDown(keySPACE) && this.a){
             //this.count++;
             //this.scoreText.setText('SCORE:'+this.count);
-            this.scene.start('gradeScene', this.time);
+            this.scene.start('decoratingScene', this.time);
         }
     }
 
