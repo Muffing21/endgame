@@ -50,14 +50,14 @@ class Rule extends Phaser.Scene {
         let centerY = game.config.height / 2;
 
         //'Character will keep running until you are caught by the skeleton!'
-        this.add.text(centerX, centerY -300, 'Some people like cake and bake, some people are not. But......', titleConfig).setOrigin(0.5);
-        this.add.text(centerX, centerY -250, 'Do you want to be the "Master of Bake?"', titleConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY -300, 'Some people like cake but lack the skill to bake....', titleConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY -250, 'Do you want to be the "Master of Baking?"', titleConfig).setOrigin(0.5);
         this.add.text(centerX, centerY -200, ' What are you waiting for? Come over and Try!', titleConfig).setOrigin(0.5);
 
         this.add.image(centerX - 25, centerY - 40, 'character').setOrigin(0.5);
 
-        this.add.text(centerX, centerY + 150, 'You will control a cute, lovely, handsome character called Jim WhiteHead. ', text1Config).setOrigin(0.5);
-        this.add.text(centerX, centerY + 200, 'The Game score is based on how perfect the cake you make.', text1Config).setOrigin(0.5);
+        this.add.text(centerX, centerY + 150, 'You will control a cute, lovely character. ', text1Config).setOrigin(0.5);
+        this.add.text(centerX, centerY + 200, 'The baking score is based on how long it took you to make the cake.', text1Config).setOrigin(0.5);
         //text1Config.color = '#FFFFFF';
         // this.add.text(centerX, centerY + 100, 'Up Arrow Once: jump', text1Config).setOrigin(0.5);
         // this.add.text(centerX, centerY + 150, 'Up Arrow Twice: double jump', text1Config).setOrigin(0.5);

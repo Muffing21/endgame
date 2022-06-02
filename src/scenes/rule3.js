@@ -55,8 +55,8 @@ class Rule3 extends Phaser.Scene {
 
         //First Step
         this.add.text(centerX, centerY -120, 'Second Step: Make the cake', titleConfig).setOrigin(0.5);
-        this.add.text(centerX, centerY -30, 'You will control the temperature to bake a perfect cake.', text1Config).setOrigin(0.5);
-        this.add.text(centerX, centerY, 'There also will have a timer to count the time, be sure to bake it just right.', text1Config).setOrigin(0.5);
+        this.add.text(centerX, centerY -30, 'Make sure to stir the bowl. Then, You will control the temperature to bake a perfect cake.', text1Config).setOrigin(0.5);
+        this.add.text(centerX, centerY, 'There will be a temperature bar for you to control. Get the timing right!', text1Config).setOrigin(0.5);
 
         this.add.image(centerX, centerY +150, 'cook').setOrigin(0.5);
 

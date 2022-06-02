@@ -43,7 +43,7 @@ class Menu extends Phaser.Scene {
         this.add.tileSprite(0, 0, 1200, 700, 'menuBackground').setOrigin(0, 0);
 
         // show menu text
-        this.add.text(centerX, centerY/3 - borderUISize - borderPadding, 'Le Boulanger! CMPM120 EndGame!', titleConfig1).setOrigin(0.5);
+        this.add.text(centerX, centerY/3 - borderUISize - borderPadding, 'Le Boulanger! Bakery of Hell!', titleConfig1).setOrigin(0.5);
         this.add.text(centerX-100, centerY/2 + 60, 'Press S for Credits', titleConfig2).setOrigin(0.5);
         this.add.text(centerX, centerY/2, 'Press W for Game Introduction', titleConfig2).setOrigin(0.5);
         this.add.text(centerX-90, centerY/2 + 120, 'Press SPACE to Play', titleConfig2).setOrigin(0.5);

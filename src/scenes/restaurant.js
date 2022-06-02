@@ -77,35 +77,35 @@ class restaurant extends Phaser.Scene {
         this.anims.create({
             key: 'idle',
             frames: this.anims.generateFrameNumbers('idle', {frames: [0, 1]}),
-            framerate: 4,
+            framerate: 2,
             repeat: -1
         });
 
         this.anims.create({
             key: 'walk_down',
             frames: this.anims.generateFrameNumbers('walk_down', {frames: [0, 1, 2, 3]}),
-            framerate: 8,
+            framerate: 4,
             repeat: -1
         });
 
         this.anims.create({
             key: 'walk_left',
             frames: this.anims.generateFrameNumbers('walk_left', {frames: [0, 1, 2, 3]}),
-            framerate: 8,
+            framerate: 4,
             repeat: -1
         });
 
         this.anims.create({
             key: 'walk_right',
             frames: this.anims.generateFrameNumbers('walk_right', {frames: [0, 1, 2, 3]}),
-            framerate: 8,
+            framerate: 4,
             repeat: -1
         });
 
         this.anims.create({
             key: 'walk_up',
             frames: this.anims.generateFrameNumbers('walk_up', {frames: [0, 1, 2, 3]}),
-            framerate: 8,
+            framerate: 4,
             repeat: -1
         });
 
@@ -292,7 +292,7 @@ class restaurant extends Phaser.Scene {
             },
             //fixedWidth: 
         }
-        this.add.text(this.ROOMWIDTH*1.5-300, this.ROOMHEIGHT*1.5+300, 'collide with blue block to get recipe, SPACEBAR to pour ingredients once you are done collecting', scoreConfig);
+        this.add.text(this.ROOMWIDTH*1.5-300, this.ROOMHEIGHT*1.5+300, 'collide with Jim to get recipe, SPACEBAR to pour ingredients once you are done collecting. Stand in front and SPACEBAR', scoreConfig);
         
         
         //timer for the player

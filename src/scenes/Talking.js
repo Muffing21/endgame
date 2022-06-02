@@ -26,6 +26,7 @@ class Talking extends Phaser.Scene {
         this.dialogTyping = false;		// flag to lock player input while text is "typing"
         this.dialogText = null;			// the actual dialog text
         this.nextText = null;			// player prompt text to continue typing
+        this.dialogEnd = false;
 
         // character variables
         this.Jim = null;
@@ -79,7 +80,7 @@ class Talking extends Phaser.Scene {
             // trigger dialog
             this.typeText();
         }
-        if(Phaser.Input.Keyboard.JustDown(keyS) && !this.dialogTyping) {
+        if(Phaser.Input.Keyboard.JustDown(keyS) && (!this.dialogTyping || this.dialogEnd == true)) {
             this.scene.start("loadScene");
         }
     }
@@ -113,6 +114,7 @@ class Talking extends Phaser.Scene {
             // here I'm simply "exiting" the last speaker and removing the dialog box,
             // but you could build other logic to change game states here
             console.log('End of Conversations');
+            this.dialogEnd = true;
             // tween out prior speaker's image
             if(this.dialogLastSpeaker) {
                 this.tweens.add({

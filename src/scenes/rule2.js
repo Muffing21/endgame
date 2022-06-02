@@ -53,8 +53,8 @@ class Rule2 extends Phaser.Scene {
         let centerY = game.config.height / 2;
 
         //First Step
-        this.add.text(centerX, centerY -300, 'First Step: Make the cake', titleConfig).setOrigin(0.5);
-        this.add.text(centerX, centerY -260, 'You will need to put the egg, milk and suger. Then start mix it.', text1Config).setOrigin(0.5);
+        this.add.text(centerX, centerY -300, 'First Step: Gather the ingredients', titleConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY -260, 'Check the recipe on what to gather. The, start putting them in the bowl.', text1Config).setOrigin(0.5);
 
         this.add.image(centerX, centerY -100, 'third_step').setOrigin(0.5);
         this.add.image(centerX, centerY +20, 'second_step').setOrigin(0.5);
