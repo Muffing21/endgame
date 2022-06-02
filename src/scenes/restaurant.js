@@ -34,11 +34,13 @@ class restaurant extends Phaser.Scene {
         this.gotPowder = false;
         this.gotSalt = false;
         this.gotVanilla = false;
+        this.block = this.add.group();
 
         //timer
         this.time = 0;
 
         // Set background color
+        
         this.cameras.main.setBackgroundColor('#666');
 
         // Set main camera to be 3 rooms wide, 2 rooms tall
@@ -57,7 +59,35 @@ class restaurant extends Phaser.Scene {
 
         // Add overworld background images
         //this.add.image(0, this.ROOMHEIGHT, 'LoZ-overworld-left').setOrigin(0);
-        this.add.image(this.ROOMWIDTH, this.ROOMHEIGHT, 'kitchenRotated').setOrigin(0);
+        this.invisBlock = this.physics.add.image(this.ROOMWIDTH*1.5, (this.ROOMHEIGHT*1.5)+50, 'invisBlock');
+         this.invisBlock.body.immovable = true;
+         this.invisBlock.body.allowGravity = false;
+        this.block.add(this.invisBlock);
+
+        this.invisBlock2 = this.physics.add.image(this.ROOMWIDTH*1.5-500, (this.ROOMHEIGHT*1.5)-200, 'invisBlock');
+         this.invisBlock2.body.immovable = true;
+         this.invisBlock2.body.allowGravity = false;
+        this.block.add(this.invisBlock2);
+
+        this.invisBlock3 = this.physics.add.image(this.ROOMWIDTH*1.5-500, (this.ROOMHEIGHT*1.5)-300, 'invisBlock');
+         this.invisBlock3.body.immovable = true;
+         this.invisBlock3.body.allowGravity = false;
+        this.block.add(this.invisBlock3);
+
+        this.invisBlock4 = this.physics.add.image(this.ROOMWIDTH*1.5+500, (this.ROOMHEIGHT*1.5)-300, 'invisBlock');
+         this.invisBlock4.body.immovable = true;
+         this.invisBlock4.body.allowGravity = false;
+        this.block.add(this.invisBlock4);
+
+        this.invisBlock5 = this.physics.add.image(this.ROOMWIDTH*1.5+500, (this.ROOMHEIGHT*1.5)-200, 'invisBlock');
+         this.invisBlock5.body.immovable = true;
+         this.invisBlock5.body.allowGravity = false;
+        this.block.add(this.invisBlock5);
+        
+        this.add.image(this.ROOMWIDTH, this.ROOMHEIGHT, 'restaurant').setOrigin(0);
+        
+        
+        
         //this.add.image(this.ROOMWIDTH*2, this.ROOMHEIGHT, 'LoZ-overworld-right').setOrigin(0);
         //this.add.image(0, 0, 'LoZ-overworld-upleft').setOrigin(0);
         this.add.image(this.ROOMWIDTH, 0, 'kitchen').setOrigin(0);
@@ -110,7 +140,7 @@ class restaurant extends Phaser.Scene {
         });
 
         //make collision group
-        this.block = this.add.group();
+        
 
         //make collision blocks
         // this.solidBlock = this.physics.add.image(this.ROOMWIDTH-this.player.displayWidth/2, this.ROOMHEIGHT-this.player.displayHeight/2, 'block').setOrigin(0);
@@ -124,7 +154,7 @@ class restaurant extends Phaser.Scene {
         // this.block.add(this.solidBlock2);
 
         //this.recipeCollide = this.add.group();
-        this.recipe = this.physics.add.image(this.ROOMWIDTH*1.5, (this.ROOMHEIGHT*1.5)+65, 'chef').setScale(this.AVATAR_SCALE);
+        this.recipe = this.physics.add.image(this.ROOMWIDTH*1.5, (this.ROOMHEIGHT*1.5)+235, 'chef').setScale(this.AVATAR_SCALE);
          this.recipe.body.immovable = true;
          this.recipe.body.allowGravity = false;
         //this.recipeCollide.add(this.recipe);
@@ -140,10 +170,10 @@ class restaurant extends Phaser.Scene {
         this.block.add(this.longWall);
 
         
-        this.longWall2 = this.physics.add.image(this.ROOMWIDTH*1.5, (this.ROOMHEIGHT*1.5)+150, 'longWall');
-        this.longWall2.body.immovable = true;
-        this.longWall2.body.allowGravity = false;
-        this.block.add(this.longWall2);
+        // this.longWall2 = this.physics.add.image(this.ROOMWIDTH*1.5, (this.ROOMHEIGHT*1.5)+150, 'longWall');
+        // this.longWall2.body.immovable = true;
+        // this.longWall2.body.allowGravity = false;
+        // this.block.add(this.longWall2);
 
         this.eggFridge = this.physics.add.image(this.ROOMWIDTH*1.5, this.ROOMWIDTH*.05+200, 'eggFridge');
         this.eggFridge.body.immovable = true;
@@ -201,21 +231,21 @@ class restaurant extends Phaser.Scene {
         this.powderFridge2.body.immovable = true;
         this.powderFridge2.body.allowGravity = false;
 
-        this.saltFridge = this.physics.add.image(this.ROOMWIDTH*1.5-400, (this.ROOMHEIGHT*1.5)-200, 'saltFridge');
+        this.saltFridge = this.physics.add.image(this.ROOMWIDTH+300, this.ROOMHEIGHT*.05+200, 'saltFridge');
         this.saltFridge.body.immovable = true;
         this.saltFridge.body.allowGravity = false;
         this.block.add(this.saltFridge);
 
-        this.saltFridge2 = this.physics.add.image(this.ROOMWIDTH*1.5-400, (this.ROOMHEIGHT*1.5)-199, 'saltFridge');
+        this.saltFridge2 = this.physics.add.image(this.ROOMWIDTH+300, this.ROOMHEIGHT*.05+201, 'saltFridge');
         this.saltFridge2.body.immovable = true;
         this.saltFridge2.body.allowGravity = false;
 
-        this.vanillaFridge = this.physics.add.image(this.ROOMWIDTH*1.5+400, (this.ROOMHEIGHT*1.5)-150, 'vanillaFridge');
+        this.vanillaFridge = this.physics.add.image(this.ROOMWIDTH+900, (this.ROOMHEIGHT*.05)+200, 'vanillaFridge');
         this.vanillaFridge.body.immovable = true;
         this.vanillaFridge.body.allowGravity = false;
         this.block.add(this.vanillaFridge);
 
-        this.vanillaFridge2 = this.physics.add.image(this.ROOMWIDTH*1.5+400, (this.ROOMHEIGHT*1.5)-149, 'vanillaFridge');
+        this.vanillaFridge2 = this.physics.add.image(this.ROOMWIDTH+900, (this.ROOMHEIGHT*.05)+201, 'vanillaFridge');
         this.vanillaFridge2.body.immovable = true;
         this.vanillaFridge2.body.allowGravity = false;
         

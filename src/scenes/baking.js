@@ -22,8 +22,8 @@ class baking extends Phaser.Scene{
 
     create(data){
         //this.add.image(600,40,'background');
-        var position_value = Phaser.Math.Between(0, 600);
-        this.moving_speed=640;
+        var position_value = Phaser.Math.Between(0, 1024);
+        this.moving_speed=840;
         this.a = false;
         this.count=0;
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
@@ -41,6 +41,8 @@ class baking extends Phaser.Scene{
         }
 
         this.baking = this.add.image(config.width/2, config.height/2, 'bake');
+        this.bg = this.add.image(0, 0, 'kitchenTable').setOrigin(0);
+
 
         this.anims.create({
             key: 'bake',
@@ -51,9 +53,9 @@ class baking extends Phaser.Scene{
 
 
         
-        this.block = this.add.image(300,40,'dangerBar');
+        this.block = this.add.image(512,40,'dangerBar');
         this.rd=this.physics.add.image(position_value,40,'safeZone');
-        this.mb=this.physics.add.image(300,40,'movingBlock');
+        this.mb=this.physics.add.image(300,30,'movingBlock');
 
         this.scoreText=this.add.text(20,90,'SCORE:0', scoreConfig);
         this.physics.add.collider(this.mb,this.i_1);
