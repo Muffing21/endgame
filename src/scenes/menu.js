@@ -5,7 +5,7 @@ class Menu extends Phaser.Scene {
 
     preload() {
         //load the background image.
-        this.load.image('menu_bg', './assets/menu_bg.png');
+        this.load.image('menuBackground', './assets/menu_bg.png');
     }
 
     create() {
@@ -16,6 +16,9 @@ class Menu extends Phaser.Scene {
             //backgroundColor: '#39FF14',
             color: '#9ACD32',
             align: 'right',
+            stroke: '#FFFFFF',
+            strokeThickness: 3, 
+            fixedWidth: 0,
         }
 
         let titleConfig2 = {
@@ -23,6 +26,9 @@ class Menu extends Phaser.Scene {
             fontSize: '32px',
             color: '#228B22',
             align: 'right',
+            stroke: '#FFFFFF',
+            strokeThickness: 3, 
+            fixedWidth: 0,
         }
 
         //menu text UI
@@ -34,18 +40,18 @@ class Menu extends Phaser.Scene {
         // this.music.play();
         
         //show background
-        this.add.tileSprite(0, 0, 1200, 700, 'menu_bg').setOrigin(0, 0);
+        this.add.tileSprite(0, 0, 1200, 700, 'menuBackground').setOrigin(0, 0);
 
         // show menu text
-        this.add.text(centerX, centerY/3 - borderUISize - borderPadding, 'Le Boulanger!', titleConfig1).setOrigin(0.5);
-        // this.add.text(centerX-80, centerY/2 + 90, 'Press S for Credits', titleConfig2).setOrigin(0.5);
-        // this.add.text(centerX-80, centerY/2 + 45, 'Press W for Game Introduction', titleConfig2).setOrigin(0.5);
-        this.add.text(centerX-80, centerY/2, 'Press SPACE to Play', titleConfig2).setOrigin(0.5);
+        this.add.text(centerX, centerY/3 - borderUISize - borderPadding, 'Le Boulanger! CMPM120 EndGame!', titleConfig1).setOrigin(0.5);
+        this.add.text(centerX-100, centerY/2 + 60, 'Press S for Credits', titleConfig2).setOrigin(0.5);
+        this.add.text(centerX, centerY/2, 'Press W for Game Introduction', titleConfig2).setOrigin(0.5);
+        this.add.text(centerX-90, centerY/2 + 120, 'Press SPACE to Play', titleConfig2).setOrigin(0.5);
 
         // define keys
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-        // keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
-        // KeyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+        keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+        KeyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
         
     }
 
@@ -53,19 +59,18 @@ class Menu extends Phaser.Scene {
         //Space to start the game
         if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
             //this.music.stop();
-            this.scene.start("loadScene");
+            this.scene.start("titleScene");
         }
         //working now
-        // //W for rule page
-        // if(Phaser.Input.Keyboard.JustDown(KeyW)){
-        //     this.music.stop();
-        //     this.scene.start("ruleScene");
-        // }
-        // //S for rule page
-        // if(Phaser.Input.Keyboard.JustDown(keyS)){
-        //     //this.music.play();
-        //     this.music.stop();
-        //     this.scene.start("creatorScene");
-        // }
+        //W for rule page
+        if(Phaser.Input.Keyboard.JustDown(KeyW)){
+            //this.music.stop();
+            this.scene.start("ruleScene");
+        }
+        //S for rule page
+        if(Phaser.Input.Keyboard.JustDown(keyS)){
+            //this.music.play();
+            this.scene.start("creatorScene");
+        }
         } 
     }

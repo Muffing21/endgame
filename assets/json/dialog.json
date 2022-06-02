@@ -1,0 +1,69 @@
+[
+	[
+		{
+			"speaker" : "You",
+			"dialog" : "Hello, My name is XXX. I am your new intern baker.",
+			"newSpeaker" : "true"
+		},
+		{
+			"speaker" : "Jim",
+			"dialog" : "Hello! you fucking donkey, I'm Jim WhiteHead, or call me master of the bake",
+			"newSpeaker" : "true"
+		},
+		{	
+			"speaker" : "You",
+			"dialog" : "How easy for baking a cake?",
+			"newSpeaker" : "true"
+		},
+		{	
+			"speaker" : "Jim",
+			"dialog" : "NO! No! No! I think It is super easy to baking a cake. My grandpa could bake better! So can't you?!",
+			"newSpeaker" : "true"
+		},
+		{	
+			"speaker" : "You",
+			"dialog" : "Sound bad but Okay! I am what I am. A fighter and Ready to fight!",
+			"newSpeaker" : "true"
+		},
+		{	
+
+			"speaker" : "Jim",
+			"dialog" : "First step: you will get the ingredient such as egg, milk, sugar and mix it inside the pink bowl.",
+			"newSpeaker" : "true"
+		},
+		{
+			"speaker": "You",
+			"dialog" : "Yes! Sir",
+			"newSpeaker" : "true"
+		},
+		{
+			"speaker": "Jim",
+			"dialog" : "First step sound easy right? but the second step is hard because you will need to control the temperature. The temperature that you control will become how perfect the cake look like. So be careful!",
+			"newSpeaker" : "true"
+		},
+		{
+			"speaker": "You",
+			"dialog" : "Yes! Sir! Yes! Sir!",
+			"newSpeaker" : "true"
+		},
+		{
+			"speaker": "Jim",
+			"dialog" : "Lastly, the last step will be design the cake by decorate the cake. You will be able to put the flower, candy, chocolate or anythings that make the cake perfect!",
+			"newSpeaker" : "true"
+		},
+		{
+			"speaker": "You",
+			"dialog" : "Yes! Sir! Yes! Sir! Yes! Sir!",
+			"newSpeaker" : "true"
+		},
+		{
+			"speaker": "Jim",
+			"dialog" : "Don't always say Yes, You stupid! If the Cake is so disgusting, you’ll get arrested.",
+			"newSpeaker" : "true"
+		},
+		{
+			"speaker": "Jim",
+			"dialog" : "Ready?! Press S and get start it now!"
+		}
+	]
+]
