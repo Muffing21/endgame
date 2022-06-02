@@ -11,7 +11,7 @@ class Rule4 extends Phaser.Scene {
         this.load.image('cake', './assets/CakedecorResized.png');
 
         //load the background image.
-        this.load.image('kitchenBackground', './assets/kitchentable.png');
+        this.load.image('kitchenBackground', './assets/kitchenTable.png');
         
     }
 

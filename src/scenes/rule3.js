@@ -11,7 +11,7 @@ class Rule3 extends Phaser.Scene {
         this.load.image('cook', './assets/Oven_Sprite_Sheet.png');
 
         //load the background image.
-        this.load.image('kitchenBackground', './assets/kitchentable.png');
+        this.load.image('kitchenBackground', './assets/kitchenTable.png');
         
     }
 

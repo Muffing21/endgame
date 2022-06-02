@@ -9,7 +9,7 @@ class Rule extends Phaser.Scene {
         this.load.image('character','./assets/idle.png');
         //image
         this.load.image('kitchen','./assets/kitchen.png');
-        this.load.image('kitchenBackground', './assets/kitchentable.png');
+        this.load.image('kitchenBackground', './assets/kitchenTable.png');
     }
 
     create (){
