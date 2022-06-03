@@ -9,6 +9,7 @@ class baking extends Phaser.Scene{
         this.load.image('a','invisible_block.png');
         this.load.image('rd', 'red_block.png');
         this.load.image('bar','bar.png');
+        this.load.audio('sfx', 'sfx.wav');
 
         this.load.image('safeZone', 'safeZone.png');
         this.load.image('dangerBar', 'dangerBar.png');
@@ -40,7 +41,8 @@ class baking extends Phaser.Scene{
             //fixedWidth: 
         }
 
-        
+        this.sfx = this.sound.add('sfx', {mute: false, volume: 1.0, rate: 1, loop: false});
+
         this.bg = this.add.image(0, 0, 'kitchenTable').setOrigin(0);
         this.baking = this.add.sprite(config.width/2, config.height/2, 'bake');
 
@@ -80,6 +82,7 @@ class baking extends Phaser.Scene{
         this.a = this.mb.body.touching.none ? false :true;
         if(Phaser.Input.Keyboard.JustDown(keySPACE) && this.a){
             this.baking.anims.play('bake');
+            this.sfx.play();
             //this.scene.start('testScene');//change this <-
             this.mb.setPosition(330,40);
             this.rd.setPosition(Phaser.Math.Between(0, 600),40);

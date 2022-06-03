@@ -152,7 +152,6 @@ class ingredients extends Phaser.Scene{
         
 
         this.add.text(200,150, 'drag and drop the ingredients.',scoreConfig);
-        this.add.text(200,200, 'Press Space to stir the ingredients or z to go back',scoreConfig);
 
         
         //this.cashier=this.add.image(0,0,'character');
@@ -240,11 +239,8 @@ class ingredients extends Phaser.Scene{
         }, null, this);
 
 
-        if(Phaser.Input.Keyboard.JustDown(keySPACE) && this.count == 7){
+        if(this.count == 7){
             this.scene.start('stirScene', this.time);
-        }
-        if(Phaser.Input.Keyboard.JustDown(keyZ)){
-            this.scene.start('restaurantScene');
         }
     }
     reset(){

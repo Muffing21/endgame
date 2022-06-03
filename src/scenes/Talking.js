@@ -56,6 +56,8 @@ class Talking extends Phaser.Scene {
         cursors = this.input.keyboard.createCursorKeys();
         //key
         keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+        keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+
     }
     update() {
         // check for spacebar press
@@ -63,7 +65,7 @@ class Talking extends Phaser.Scene {
             // trigger dialog
             this.typeText();
         }
-        if(Phaser.Input.Keyboard.JustDown(keyS) && (!this.dialogTyping || this.dialogEnd == true)) {
+        if((Phaser.Input.Keyboard.JustDown(keyS) || Phaser.Input.Keyboard.JustDown(keySPACE)) && (!this.dialogTyping || this.dialogEnd == true)) {
             this.scene.start("loadScene");
         }
     }

@@ -5,7 +5,8 @@ class restaurant extends Phaser.Scene {
 
     preload(){
         //menu bgm
-        this.load.audio('menu_bgm', './assets/t.wav');
+        this.load.audio('sfx', './assets/pickup.wav')
+
     }
 
     create() {
@@ -14,8 +15,11 @@ class restaurant extends Phaser.Scene {
 
 
         //add background music
-        //this.music = this.sound.add('menu_bgm', {mute: false, volume: 1.0, rate: 1, loop: true});
-        //this.music.play();
+        
+        //music = this.sound.add('bgm', {mute: false, volume: 1.0, rate: 1, loop: true});
+        //music.play();
+        this.sfx = this.sound.add('sfx', {mute: false, volume: 1.0, rate: 1, loop: false});
+
         
         const gui = new dat.GUI();
 
@@ -339,7 +343,7 @@ class restaurant extends Phaser.Scene {
             },
             //fixedWidth: 
         }
-        this.add.text(this.ROOMWIDTH*1.5-300, this.ROOMHEIGHT*1.5+300, 'collide with Jim to get recipe, SPACEBAR to pour ingredients once you are done collecting. Stand in front and SPACEBAR', scoreConfig);
+        this.add.text(this.ROOMWIDTH*1.5-300, this.ROOMHEIGHT*1.5+300, 'collide with Gorgon to get recipe, SPACEBAR to pour ingredients once you are done collecting. Stand in front and SPACEBAR', scoreConfig);
         
         
         //timer for the player
@@ -423,48 +427,56 @@ class restaurant extends Phaser.Scene {
             console.log("Got the milk");
             this.foodCounter += 1;
             this.gotMilk = true;
+            this.sfx.play();
         }
 
         if(this.physics.overlap(this.player, this.eggFridge2)  && Phaser.Input.Keyboard.JustDown(keySPACE) && this.gotEgg == false){
             console.log("Got the egg");
             this.foodCounter += 1;
             this.gotEgg = true;
+            this.sfx.play();
         }
 
         if(this.physics.overlap(this.player, this.flourFridge2)  && Phaser.Input.Keyboard.JustDown(keySPACE) && this.gotFlour == false){
             console.log("Got the Flour");
             this.foodCounter += 1;
             this.gotFlour = true;
+            this.sfx.play();
         }
 
         if(this.physics.overlap(this.player, this.sugarFridge2)  && Phaser.Input.Keyboard.JustDown(keySPACE) && this.gotSugar == false){
             console.log("Got the Sugar");
             this.foodCounter += 1;
             this.gotSugar = true;
+            this.sfx.play();
         }
 
         if(this.physics.overlap(this.player, this.powderFridge2)  && Phaser.Input.Keyboard.JustDown(keySPACE) && this.gotPowder == false){
             console.log("Got the Powder");
             this.foodCounter += 1;
             this.gotPowder = true;
+            this.sfx.play();
         }
 
         if(this.physics.overlap(this.player, this.sodaFridge2)  && Phaser.Input.Keyboard.JustDown(keySPACE) && this.gotSoda == false){
             console.log("Got the soda");
             this.foodCounter += 1;
             this.gotSoda = true;
+            this.sfx.play();
         }
 
         if(this.physics.overlap(this.player, this.saltFridge2)  && Phaser.Input.Keyboard.JustDown(keySPACE) && this.gotSalt == false){
             console.log("Got the salt");
             this.foodCounter += 1;
             this.gotSalt = true;
+            this.sfx.play();
         }
 
         if(this.physics.overlap(this.player, this.vanillaFridge2)  && Phaser.Input.Keyboard.JustDown(keySPACE) && this.gotVanilla == false){
             console.log("Got the vanilla");
             this.foodCounter += 1;
             this.gotVanilla = true;
+            this.sfx.play();
         }
         
         if(this.physics.overlap(this.player, this.recipe)){
@@ -500,7 +512,7 @@ class restaurant extends Phaser.Scene {
             this.recipeUnlocked = true;
         }
 
-        if (Phaser.Input.Keyboard.JustDown(keySPACE) && this.foodCounter == 8) {
+        if (this.foodCounter == 8) {
             //this.music.stop();
             this.scene.start('ingredientsScene', this.time);
         }

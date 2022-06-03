@@ -6,6 +6,7 @@ class Menu extends Phaser.Scene {
     preload() {
         //load the background image.
         this.load.image('menuBackground', './assets/menu_bg.png');
+
     }
 
     create() {
@@ -36,8 +37,8 @@ class Menu extends Phaser.Scene {
         let centerY = game.config.height / 2;
 
         //add background music
-        // this.music = this.sound.add('menu_bgm', {mute: false, volume: 1.0, rate: 1, loop: true});
-        // this.music.play();
+        //this.music = this.sound.add('menu_bgm', {mute: false, volume: 1.0, rate: 1, loop: true});
+        //this.music.play();
         
         //show background
         this.add.tileSprite(0, 0, 1200, 700, 'menuBackground').setOrigin(0, 0);

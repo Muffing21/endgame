@@ -139,7 +139,6 @@ class decorating extends Phaser.Scene{
         
 
         this.add.text(200,150, 'drag and drop the ingredients.',scoreConfig);
-        this.add.text(200,200, 'Press Space to stir the ingredients or z to go back',scoreConfig);
 
         
         //this.cashier=this.add.image(0,0,'character');
@@ -227,7 +226,7 @@ class decorating extends Phaser.Scene{
         }, null, this);
 
 
-        if(Phaser.Input.Keyboard.JustDown(keySPACE) && this.count == 6){
+        if(this.count == 6){
             this.scene.start('gradeScene', this.time);
         }
     }
