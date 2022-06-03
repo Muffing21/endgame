@@ -21,16 +21,17 @@ class ingredients extends Phaser.Scene{
 
         //config for texts
         let scoreConfig = {
-            fontFamily: 'serif',
-            fontSize: '16px',
-            backgroundColor: '#ADD8E6',
-            color: '#000000',
+            fontFamily: 'Pangolin',
+            fontSize: '20px',
+            color: '#F8B88B',
             align: 'right',
+            stroke: '#FF6700',
+            strokeThickness: 6, 
+            fixedWidth: 0,
             padding: {
                 top: 10,
                 bottom: 10,
-            },
-            //fixedWidth: 
+            }, 
         }
 
         // this.anims.create({

@@ -22,7 +22,7 @@ class stir extends Phaser.Scene{
         keyDown = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
         
         this.counter_text=this.add.text(config.width/2, config.height/2-200,this.counter,scoreConfig);
-        this.add.text(config.width/2, config.height/2+200, 'press left, up, right,\nand down arrow to stir to 50');
+        this.add.text(config.width/2, config.height/2+200, 'press left, up, right,\nand down arrow to stir to 50',scoreConfig);
 
         //add bowl
         this.bowl = this.add.sprite(config.width/2, config.height/2, 'stir');

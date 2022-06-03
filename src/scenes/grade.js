@@ -28,34 +28,34 @@ class grade extends Phaser.Scene {
 
     update(){
         if(this.time <= this.defaultTime){
-            this.add.text(config.width/2, config.height/2, 'S RANK: Baking Master', scoreConfig).setOrigin(0.5);
+            this.add.text(config.width/2, config.height/2, 'S   RANK: Baking Master', scoreConfig).setOrigin(0.5);
         }
         if(this.time > this.defaultTime && this.time <= this.defaultTime+5000){
-            this.add.text(config.width/2, config.height/2, 'A RANK: Baking Professional', scoreConfig).setOrigin(0.5);
+            this.add.text(config.width/2, config.height/2, 'A   RANK: Baking Professional', scoreConfig).setOrigin(0.5);
         }
         if(this.time > this.defaultTime+5000 && this.time <=this.defaultTime+10000){
-            this.add.text(config.width/2, config.height/2, 'A- RANK: Baking Elite', scoreConfig).setOrigin(0.5);
+            this.add.text(config.width/2, config.height/2, 'A-   RANK: Baking Elite', scoreConfig).setOrigin(0.5);
         }
         if(this.time > this.defaultTime+10000 && this.time <= this.defaultTime+15000){
-            this.add.text(config.width/2, config.height/2, 'B RANK: Average Baker', scoreConfig).setOrigin(0.5);
+            this.add.text(config.width/2, config.height/2, 'B   RANK: Average Baker', scoreConfig).setOrigin(0.5);
         }
         if(this.time > this.defaultTime+15000 && this.time <= this.defaultTime+20000){
-            this.add.text(config.width/2, config.height/2, 'B- RANK: Below Average Baker', scoreConfig).setOrigin(0.5);
+            this.add.text(config.width/2, config.height/2, 'B-   RANK: Below Average Baker', scoreConfig).setOrigin(0.5);
         }
         if(this.time > this.defaultTime+20000 && this.time <= this.defaultTime+25000){
-            this.add.text(config.width/2, config.height/2, 'C RANK: Baking Beginner', scoreConfig).setOrigin(0.5);
+            this.add.text(config.width/2, config.height/2, 'C    RANK: Baking Beginner', scoreConfig).setOrigin(0.5);
         }
         if(this.time > this.defaultTime+25000 && this.time <= this.defaultTime+30000){
-            this.add.text(config.width/2, config.height/2, 'C- RANK: Baking Newbie', scoreConfig).setOrigin(0.5);
+            this.add.text(config.width/2, config.height/2, 'C-   RANK: Baking Newbie', scoreConfig).setOrigin(0.5);
         }
         if(this.time > this.defaultTime+30000 && this.time <= this.defaultTime+35000){
-            this.add.text(config.width/2, config.height/2, 'D RANK: What Are You Doing?', scoreConfig).setOrigin(0.5);
+            this.add.text(config.width/2, config.height/2, 'D   RANK: What Are You Doing?', scoreConfig).setOrigin(0.5);
         }
         if(this.time > this.defaultTime+35000 && this.time <= this.defaultTime+40000){
-            this.add.text(config.width/2, config.height/2, 'D- RANK: How?!', scoreConfig).setOrigin(0.5);
+            this.add.text(config.width/2, config.height/2, 'D-   RANK: How?!', scoreConfig).setOrigin(0.5);
         }
         if(this.time > this.defaultTime+40000){
-            this.add.text(config.width/2, config.height/2, 'F RANK: You Donkey!', scoreConfig).setOrigin(0.5);
+            this.add.text(config.width/2, config.height/2, 'F   RANK: You Donkey!', scoreConfig).setOrigin(0.5);
         }
 
         if(Phaser.Input.Keyboard.JustDown(keyZ)){

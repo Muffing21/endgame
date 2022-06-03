@@ -7,20 +7,22 @@ class restaurant extends Phaser.Scene {
         //menu bgm
         this.load.audio('sfx', './assets/pickup.wav')
 
+        //pickup bgm
+        this.load.audio('menu_bgm','./assets/t.wav');
+
     }
 
     create() {
 
         //we need to make variables and stuff for collecting thee ingredients
-
+        //this.pick_up_music = this.sound.add('pickup', {mute: false, volume: 0.2, rate: 1, loop: false});
 
         //add background music
-        
-        //music = this.sound.add('bgm', {mute: false, volume: 1.0, rate: 1, loop: true});
-        //music.play();
-        this.sfx = this.sound.add('sfx', {mute: false, volume: 1.0, rate: 1, loop: false});
+        this.music = this.sound.add('menu_bgm', {mute: false, volume: 1.0, rate: 1, loop: true});
+        this.music.play();
 
-        
+        this.sfx = this.sound.add('sfx', {mute: false, volume: 1.0, rate: 1, loop: false});   
+
         const gui = new dat.GUI();
 
         // variables and settings
@@ -332,18 +334,25 @@ class restaurant extends Phaser.Scene {
 
         //instructions
         let scoreConfig = {
-            fontFamily: 'serif',
-            fontSize: '16px',
-            backgroundColor: '#ADD8E6',
-            color: '#000000',
+            fontFamily: 'Pangolin',
+            fontSize: '20px',
+            color: '#F8B88B',
             align: 'right',
+            stroke: '#FF6700',
+            strokeThickness: 6, 
+            fixedWidth: 0,
+
+            // fontFamily: 'serif',
+            // fontSize: '16px',
+            // backgroundColor: '#ADD8E6',
+            // color: '#000000',
+            // align: 'right',
             padding: {
                 top: 10,
                 bottom: 10,
-            },
-            //fixedWidth: 
+            }, 
         }
-        this.add.text(this.ROOMWIDTH*1.5-300, this.ROOMHEIGHT*1.5+300, 'collide with Gorgon to get recipe, SPACEBAR to pour ingredients once you are done collecting. Stand in front and SPACEBAR', scoreConfig);
+        this.add.text(this.ROOMWIDTH*1.5 - 450, this.ROOMHEIGHT*1.5 + 250, 'collide with Gorgon to get recipe, SPACEBAR to pour ingredients once you are done collecting. Stand in front and SPACEBAR', scoreConfig);
         
         
         //timer for the player
@@ -353,9 +362,9 @@ class restaurant extends Phaser.Scene {
         this.currentTime2 = this.add.text(this.ROOMWIDTH+20, this.ROOMHEIGHT*.05+20, this.time, scoreConfig);
         
             
-        this.recipe1 = this.add.text(this.ROOMWIDTH*1.5-300, this.ROOMHEIGHT*1.5, "Follow this Vanilla Cake Recipe:", scoreConfig)
+        this.recipe1 = this.add.text(this.ROOMWIDTH*1.5-300, this.ROOMHEIGHT*1.5-20, "Follow this Vanilla Cake Recipe:", scoreConfig)
         this.recipe2 = this.add.text(this.ROOMWIDTH*1.5-300, this.ROOMHEIGHT*1.5+50, "1x milk\n1x flour\n1x egg\n1x salt\n1x vanilla\n1x milk\n1x sugar\n1x soda\n1x powder", scoreConfig)
-        this.recipe3 = this.add.text(this.ROOMWIDTH*1.5-250, this.ROOMHEIGHT*1.5+250, "Press 'z' to back", scoreConfig).setOrigin(0.5)
+        this.recipe3 = this.add.text(this.ROOMWIDTH*1.5-200, this.ROOMHEIGHT*1.5+30, "Press 'z' to back", scoreConfig).setOrigin(0.5)
         this.recipe1.visible = false;
             this.recipe2.visible = false;
             this.recipe3.visible = false;
@@ -373,15 +382,17 @@ class restaurant extends Phaser.Scene {
         this.player.anims.play('idle');
 
         let scoreConfig = {
-            fontFamily: 'serif',
-            fontSize: '16px',
-            backgroundColor: '#ADD8E6',
-            color: '#000000',
+            fontFamily: 'Pangolin',
+            fontSize: '20px',
+            color: '#F8B88B',
             align: 'right',
+            stroke: '#FF6700',
+            strokeThickness: 6, 
+            fixedWidth: 0,
             padding: {
                 top: 10,
                 bottom: 10,
-            },
+            }, 
             //fixedWidth: 
         }
 
