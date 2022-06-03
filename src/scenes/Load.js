@@ -23,7 +23,8 @@ class Load extends Phaser.Scene {
         this.load.image('kitchenRotated', 'kitchenRotated.png');
         this.load.image('longWall', 'longwall.png');
         this.load.image('restaurant', 'restaurant.png');
-        this.load.image('invisBlock', 'invisBlock.png')
+        this.load.image('invisBlock', 'invisBlock.png');
+        this.load.image('invisBlock2', 'highBlock.png');
         
         //character
         this.load.spritesheet('idle', 'idle.png', {frameWidth: 256, frameHeight: 256, startFrame: 0, endFrame: 1});
@@ -70,7 +71,6 @@ class Load extends Phaser.Scene {
 
     create() {
         // ...and pass to the next Scene
-        //this.scene.start('restaurantScene');
         this.scene.start('restaurantScene');
     }
 }
