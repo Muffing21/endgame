@@ -40,14 +40,14 @@ class baking extends Phaser.Scene{
             //fixedWidth: 
         }
 
-        this.baking = this.add.image(config.width/2, config.height/2, 'bake');
+        
         this.bg = this.add.image(0, 0, 'kitchenTable').setOrigin(0);
-
+        this.baking = this.add.sprite(config.width/2, config.height/2, 'bake');
 
         this.anims.create({
             key: 'bake',
             frames: this.anims.generateFrameNumbers('bake', {frames: [0, 1, 2, 3]}),
-            framerate: 8,
+            frameRate: 8,
             repeat: 0
         });
 
@@ -79,7 +79,7 @@ class baking extends Phaser.Scene{
 
         this.a = this.mb.body.touching.none ? false :true;
         if(Phaser.Input.Keyboard.JustDown(keySPACE) && this.a){
-            //this.baking.anims.play('bake');
+            this.baking.anims.play('bake');
             //this.scene.start('testScene');//change this <-
             this.mb.setPosition(330,40);
             this.rd.setPosition(Phaser.Math.Between(0, 600),40);

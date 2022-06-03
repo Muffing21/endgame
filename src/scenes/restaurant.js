@@ -83,8 +83,23 @@ class restaurant extends Phaser.Scene {
          this.invisBlock5.body.immovable = true;
          this.invisBlock5.body.allowGravity = false;
         this.block.add(this.invisBlock5);
+
+        this.invisBlock6 = this.physics.add.image(this.ROOMWIDTH*1.5-500, (this.ROOMHEIGHT*1.5)+200, 'invisBlock');
+         this.invisBlock6.body.immovable = true;
+         this.invisBlock6.body.allowGravity = false;
+        this.block.add(this.invisBlock6);
         
+        this.invisBlock7 = this.physics.add.image(this.ROOMWIDTH*1.5+500, (this.ROOMHEIGHT*1.5)+200, 'invisBlock');
+         this.invisBlock7.body.immovable = true;
+         this.invisBlock7.body.allowGravity = false;
+        this.block.add(this.invisBlock7);
+
         this.add.image(this.ROOMWIDTH, this.ROOMHEIGHT, 'restaurant').setOrigin(0);
+        
+        this.invisBlock8 = this.physics.add.image(this.ROOMWIDTH, (this.ROOMHEIGHT*1.5)+200, 'invisBlock2');
+         this.invisBlock8.body.immovable = true;
+         this.invisBlock8.body.allowGravity = false;
+        this.block.add(this.invisBlock8);
         
         
         
@@ -107,37 +122,39 @@ class restaurant extends Phaser.Scene {
         this.anims.create({
             key: 'idle',
             frames: this.anims.generateFrameNumbers('idle', {frames: [0, 1]}),
-            framerate: 2,
+            frameRate: 12,
             repeat: -1
         });
 
         this.anims.create({
             key: 'walk_down',
             frames: this.anims.generateFrameNumbers('walk_down', {frames: [0, 1, 2, 3]}),
-            framerate: 4,
+            frameRate: 12,
             repeat: -1
         });
 
         this.anims.create({
             key: 'walk_left',
             frames: this.anims.generateFrameNumbers('walk_left', {frames: [0, 1, 2, 3]}),
-            framerate: 4,
+            framerate: 12,
             repeat: -1
         });
 
         this.anims.create({
             key: 'walk_right',
             frames: this.anims.generateFrameNumbers('walk_right', {frames: [0, 1, 2, 3]}),
-            framerate: 4,
+            frameRate: 12,
             repeat: -1
         });
 
         this.anims.create({
             key: 'walk_up',
             frames: this.anims.generateFrameNumbers('walk_up', {frames: [0, 1, 2, 3]}),
-            framerate: 4,
+            frameRate: 12,
             repeat: -1
         });
+
+        
 
         //make collision group
         
@@ -329,6 +346,7 @@ class restaurant extends Phaser.Scene {
         scoreConfig.color = '#FFFF00';
         //this.time = data;
         this.currentTime = this.add.text(this.ROOMWIDTH+20, this.ROOMHEIGHT+20, this.time, scoreConfig);
+        this.currentTime2 = this.add.text(this.ROOMWIDTH+20, this.ROOMHEIGHT*.05+20, this.time, scoreConfig);
         
             
         this.recipe1 = this.add.text(this.ROOMWIDTH*1.5-300, this.ROOMHEIGHT*1.5, "Follow this Vanilla Cake Recipe:", scoreConfig)
@@ -344,6 +362,7 @@ class restaurant extends Phaser.Scene {
         //increase timer
         this.time += delta;
         this.currentTime.text = (this.time/1000).toFixed(2);
+        this.currentTime2.text = (this.time/1000).toFixed(2);
             
                 
 
@@ -372,7 +391,7 @@ class restaurant extends Phaser.Scene {
         
         else if(cursors.right.isDown) {
             this.player.body.setVelocity(this.VELOCITY, 0);
-            this.player.anims.play('walk_right');
+           this.player.anims.play('walk_right');
 
         } else if(cursors.up.isDown) {
             this.player.body.setVelocity(0, -this.VELOCITY);

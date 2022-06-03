@@ -8,7 +8,7 @@ class Rule4 extends Phaser.Scene {
         // load music audio
         // this.load.image('menucreator', './assets/intro1.png');
         //image
-        this.load.image('cake', './assets/CakedecorResized.png');
+        this.load.image('Cake', './assets/CakedecorResized.png');
 
         //load the background image.
         this.load.image('kitchenBackground', './assets/kitchenTable.png');
@@ -60,7 +60,7 @@ class Rule4 extends Phaser.Scene {
         this.add.text(centerX, centerY - 30, 'Lastly, you will get a rating from Chef Master based on how well you impressed him!', text1Config).setOrigin(0.5);
         this.add.text(centerX, centerY, 'Good Luck! Enjoy the game!', text1Config).setOrigin(0.5);
 
-        this.add.image(centerX, centerY +130, 'cake').setOrigin(0.5);
+        this.add.image(centerX, centerY +130, 'Cake').setOrigin(0.5);
 
         //type space for next rule
         this.add.text(centerX, centerY + 300, '[ Press (SPACE) for menu and Start the Game ]', creditConfig).setOrigin(0.5);
