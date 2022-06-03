@@ -6,18 +6,18 @@
 			"newSpeaker" : "true"
 		},
 		{
-			"speaker" : "Jim",
-			"dialog" : "Hello! you fucking donkey, I'm Jim WhiteHead, or call me master of baking.",
+			"speaker" : "Gorgon",
+			"dialog" : "Hello! you fricking donkey, I'm Gorgon Baguette, or call me master of baking.",
 			"newSpeaker" : "true"
 		},
 		{	
 			"speaker" : "You",
-			"dialog" : "How easy is it to bake a cake?",
+			"dialog" : "is it easy to bake a cake?",
 			"newSpeaker" : "true"
 		},
 		{	
-			"speaker" : "Jim",
-			"dialog" : "NO! No! No! I think It is super easy to bake a cake. My grandpa could easily bake one! So, can you do it?!",
+			"speaker" : "Gorgon",
+			"dialog" : "NO! No! No! I think It is super easy for me to bake a cake. But it is not easy for you. My grandpa could easily bake one! So, can you do it?!",
 			"newSpeaker" : "true"
 		},
 		{	
@@ -27,13 +27,13 @@
 		},
 		{	
 
-			"speaker" : "Jim",
+			"speaker" : "Gorgon",
 			"dialog" : "First step: you will receive a recipe from me and you must gather the ingredients from the kitchen so you don't drop them.",
 			"newSpeaker" : "true"
 		},
 		{	
 
-			"speaker" : "Jim",
+			"speaker" : "Gorgon",
 			"dialog" : "Make sure to walk in front of the fridge/shelves before you grab (SPACEBAR) the ingredients."
 		},
 		{
@@ -42,7 +42,7 @@
 			"newSpeaker" : "true"
 		},
 		{
-			"speaker": "Jim",
+			"speaker": "Gorgon",
 			"dialog" : "First step sounds easy right? but the second step is hard because you will need to toss things into the bowl (Drag and Drop). The bakery shop has anti-gravity technology so the ingredients will be flying.",
 			"newSpeaker" : "true"
 		},
@@ -52,7 +52,7 @@
 			"newSpeaker" : "true"
 		},
 		{
-			"speaker": "Jim",
+			"speaker": "Gorgon",
 			"dialog" : "Next, you will need to mix the ingredients. Start mashing those goodies together! (mash arrow keys in order left up right down)",
 			"newSpeaker" : "true"
 		},
@@ -62,7 +62,7 @@
 			"newSpeaker" : "true"
 		},
 		{
-			"speaker": "Jim",
+			"speaker": "Gorgon",
 			"dialog" : "Next process is really important. You must master the art of temperature control. Press (SPACEBAR) once the blue hits the green.",
 			"newSpeaker" : "true"
 		},
@@ -72,7 +72,7 @@
 			"newSpeaker" : "true"
 		},
 		{
-			"speaker": "Jim",
+			"speaker": "Gorgon",
 			"dialog" : "Lastly, the last step will be designing the cake by adding decorations. You will be able to put the flower, candy, chocolate or anything that makes the cake perfect!",
 			"newSpeaker" : "true"
 		},
@@ -82,12 +82,12 @@
 			"newSpeaker" : "true"
 		},
 		{
-			"speaker": "Jim",
+			"speaker": "Gorgon",
 			"dialog" : "Don't always say Yes, You stupid! If the Cake is disgusting, you’ll get arrested. Make sure to try to complete this in 60 minutes! (60 seconds in game)",
 			"newSpeaker" : "true"
 		},
 		{
-			"speaker": "Jim",
+			"speaker": "Gorgon",
 			"dialog" : "Ready?! Press S and get to work, now!"
 		}
 	]
