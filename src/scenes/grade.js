@@ -59,6 +59,7 @@ class grade extends Phaser.Scene {
         }
 
         if(Phaser.Input.Keyboard.JustDown(keyZ)){
+            
             this.scene.start('menuScene');
         }
 

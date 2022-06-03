@@ -45,6 +45,9 @@ class baking extends Phaser.Scene{
 
         this.sfx = this.sound.add('sfx', {mute: false, volume: 1.0, rate: 1, loop: false});
 
+        this.music = this.sound.add('menu_bgm', {mute: false, volume: 1.0, rate: 1, loop: true});
+        this.music.play();
+
         this.bg = this.add.image(0, 0, 'kitchenTable').setOrigin(0);
         this.baking = this.add.sprite(config.width/2, config.height/2, 'bake');
 
@@ -96,6 +99,7 @@ class baking extends Phaser.Scene{
         }
 
         if(this.count == 5){
+            this.music.stop();
             this.scene.start('decoratingScene', this.time);    
         }
     }

@@ -20,6 +20,8 @@ class stir extends Phaser.Scene{
         keyLeft = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRight = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
         keyDown = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
+        this.music = this.sound.add('menu_bgm', {mute: false, volume: 1.0, rate: 1, loop: true});
+        this.music.play();
         
         this.counter_text=this.add.text(config.width/2, config.height/2-200,this.counter,scoreConfig);
         this.add.text(config.width/2, config.height/2+200, 'press left, up, right,\nand down arrow to stir to 50',scoreConfig);
@@ -79,7 +81,8 @@ class stir extends Phaser.Scene{
             this.bowl.anims.play('stir');
             
         }
-        if(this.counter == 50){
+        if(this.counter >= 50){
+            this.music.stop();
             this.scene.start('bakingScene', this.time);
         }
     }

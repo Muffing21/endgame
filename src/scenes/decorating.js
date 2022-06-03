@@ -7,6 +7,8 @@ class decorating extends Phaser.Scene{
     create(data){
         this.count=0;
         this.score=0;
+        this.music = this.sound.add('menu_bgm', {mute: false, volume: 1.0, rate: 1, loop: true});
+        this.music.play();
         
         this.AVATAR_SCALE = 0.25;
         this.ROOMWIDTH = 1024;
@@ -38,7 +40,7 @@ class decorating extends Phaser.Scene{
 
         this.add.image(this.ROOMWIDTH, 0,'temp_bg').setOrigin(0);
         //game.physics.startSystem(Phaser.Physics.ARCADE);
-        this.scoreText=this.add.text(20,20,'SCORE:0', scoreConfig);
+        //this.scoreText=this.add.text(20,20,'SCORE:0', scoreConfig);
         this.cashier=this.physics.add.sprite(config.width/2, config.height/2, 'cake');
         this.cashier.body.immovable =true;
         
@@ -180,7 +182,7 @@ class decorating extends Phaser.Scene{
             //cashier.destroy();
             this.count++;
             //this.food.anims.play('milk');
-           this.scoreText.setText('SCORE:'+this.count);
+           //this.scoreText.setText('SCORE:'+this.count);
            this.food.destroy();
            //this.food.setVelocity(0,0);
            this.add.image(config.width/2-20, config.height/2+20, "strawberry");
@@ -191,7 +193,7 @@ class decorating extends Phaser.Scene{
             
             //cashier.destroy();
             this.count++;
-           this.scoreText.setText('SCORE:'+this.count);
+         //  this.scoreText.setText('SCORE:'+this.count);
            
            this.salt.destroy();
            this.add.image(config.width/2, config.height/2-60 , "candle");
@@ -201,7 +203,7 @@ class decorating extends Phaser.Scene{
             
             //cashier.destroy();
             this.count++;
-           this.scoreText.setText('SCORE:'+this.count);
+         //  this.scoreText.setText('SCORE:'+this.count);
            
            this.bp.destroy();
            this.add.image(config.width/2+30, config.height/2-30, "cookie");
@@ -211,7 +213,7 @@ class decorating extends Phaser.Scene{
             
             //cashier.destroy();
             this.count++;
-           this.scoreText.setText('SCORE:'+this.count);
+           //this.scoreText.setText('SCORE:'+this.count);
            
            this.soda.destroy();
            this.add.image(config.width/2+30, config.height/2, "carrot");
@@ -221,7 +223,7 @@ class decorating extends Phaser.Scene{
             
             //cashier.destroy();
             this.count++;
-           this.scoreText.setText('SCORE:'+this.count);
+          // this.scoreText.setText('SCORE:'+this.count);
            
            this.vanilla.destroy();
            this.add.image(config.width/2-30, config.height/2-30, "cherry");
@@ -229,6 +231,7 @@ class decorating extends Phaser.Scene{
 
 
         if(this.count == 6){
+            this.music.stop();
             this.scene.start('gradeScene', this.time);
         }
     }

@@ -524,7 +524,7 @@ class restaurant extends Phaser.Scene {
         }
 
         if (this.foodCounter == 8) {
-            //this.music.stop();
+            this.music.stop();
             this.scene.start('ingredientsScene', this.time);
         }
 

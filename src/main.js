@@ -51,6 +51,7 @@ let scoreConfig = {
 this.time = 0;
 this.gameOver = false;
 this.playerGrade == 100;
+this.music;
 
 let game = new Phaser.Game(config);
 

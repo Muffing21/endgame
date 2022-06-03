@@ -14,6 +14,8 @@ class ingredients extends Phaser.Scene{
     create(data){
         this.count=0;
         this.score=0;
+        this.music = this.sound.add('menu_bgm', {mute: false, volume: 1.0, rate: 1, loop: true});
+        this.music.play();
         
         this.AVATAR_SCALE = 0.25;
         this.ROOMWIDTH = 1024;
@@ -241,6 +243,7 @@ class ingredients extends Phaser.Scene{
 
 
         if(this.count == 7){
+            this.music.stop();
             this.scene.start('stirScene', this.time);
         }
     }
