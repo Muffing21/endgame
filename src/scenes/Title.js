@@ -19,7 +19,7 @@ class Title extends Phaser.Scene {
         //image for you
         this.load.image('You', 'img/player.png');
         //image for jim
-        this.load.image('Jim', 'img/chef.png');
+        this.load.image('Gorgon', 'img/chef.png');
 
         //load the background
 
@@ -34,7 +34,7 @@ class Title extends Phaser.Scene {
 
         // add title text
         this.add.bitmapText(centerX, centerY - 32, 'gem_font', 'Welcome to Bakery of Hell', 32).setOrigin(0.5);
-        this.add.bitmapText(centerX, centerY, 'gem_font', 'Press SPACE to talk with Jim Whitehead', 16).setOrigin(0.5);
+        this.add.bitmapText(centerX, centerY, 'gem_font', 'Press SPACE to talk with Gorgon Baguette', 16).setOrigin(0.5);
         this.add.bitmapText(centerX, centerY + 32, 'gem_font', 'Press S to skip and get Start', 16).setOrigin(0.5);
         this.add.bitmapText(centerX, centerY + 64, 'gem_font', 'Press Z to go back to menu', 16).setOrigin(0.5);
 

@@ -20,6 +20,7 @@ class grade extends Phaser.Scene {
         //this.currentTime = (this.time/1000).toFixed(2);
         this.currentTime = this.add.text(config.width/2, config.height/2+200, (this.time/1000).toFixed(2), scoreConfig);
         this.add.text(config.width/2-150, config.height/2+200, 'Your Time:', scoreConfig);
+        this.add.text(config.width/2-150, config.height/2+250, 'Press z to go back to menu', scoreConfig);
 
 
     }

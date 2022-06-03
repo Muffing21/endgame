@@ -43,7 +43,7 @@ class ingredients extends Phaser.Scene{
 
         this.add.image(this.ROOMWIDTH, 0,'temp_bg').setOrigin(0);
         //game.physics.startSystem(Phaser.Physics.ARCADE);
-        this.scoreText=this.add.text(20,20,'SCORE:0', scoreConfig);
+        //this.scoreText=this.add.text(20,20,'SCORE:0', scoreConfig);
         this.cashier=this.physics.add.sprite(config.width/2, config.height/2,'stir');
         this.cashier.body.immovable =true;
         
@@ -178,7 +178,7 @@ class ingredients extends Phaser.Scene{
             
             //cashier.destroy();
             this.count++;
-           this.scoreText.setText('SCORE:'+this.count);
+           //this.scoreText.setText('SCORE:'+this.count);
            
            this.fruit.destroy();
         }, null, this);
@@ -188,7 +188,7 @@ class ingredients extends Phaser.Scene{
             //cashier.destroy();
             this.count++;
             //this.food.anims.play('milk');
-           this.scoreText.setText('SCORE:'+this.count);
+           //this.scoreText.setText('SCORE:'+this.count);
            this.food.destroy();
            //this.food.setVelocity(0,0);
            
@@ -198,7 +198,7 @@ class ingredients extends Phaser.Scene{
             
             //cashier.destroy();
             this.count++;
-           this.scoreText.setText('SCORE:'+this.count);
+          // this.scoreText.setText('SCORE:'+this.count);
            
            this.salt.destroy();
         }, null, this);
@@ -207,7 +207,7 @@ class ingredients extends Phaser.Scene{
             
             //cashier.destroy();
             this.count++;
-           this.scoreText.setText('SCORE:'+this.count);
+          // this.scoreText.setText('SCORE:'+this.count);
            
            this.butter.destroy();
         }, null, this);
@@ -216,7 +216,7 @@ class ingredients extends Phaser.Scene{
             
             //cashier.destroy();
             this.count++;
-           this.scoreText.setText('SCORE:'+this.count);
+         //  this.scoreText.setText('SCORE:'+this.count);
            
            this.bp.destroy();
         }, null, this);
@@ -225,7 +225,7 @@ class ingredients extends Phaser.Scene{
             
             //cashier.destroy();
             this.count++;
-           this.scoreText.setText('SCORE:'+this.count);
+          // this.scoreText.setText('SCORE:'+this.count);
            
            this.soda.destroy();
         }, null, this);
@@ -234,7 +234,7 @@ class ingredients extends Phaser.Scene{
             
             //cashier.destroy();
             this.count++;
-           this.scoreText.setText('SCORE:'+this.count);
+         //  this.scoreText.setText('SCORE:'+this.count);
            
            this.vanilla.destroy();
         }, null, this);
