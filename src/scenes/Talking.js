@@ -33,7 +33,7 @@ class Talking extends Phaser.Scene {
     preload(){
         //load the background
         this.load.image('kitchen','./assets/kitchen.png');
-        this.load.image('kitchenBackground', './assets/kitchentable.png');
+        this.load.image('kitchenBackground', './assets/kitchenTable.png');
     }
     create() {
         //load the image
