@@ -22,8 +22,8 @@ class baking extends Phaser.Scene{
 
     create(data){
         //this.add.image(600,40,'background');
-        var position_value = Phaser.Math.Between(70, 954);
-        this.moving_speed=1040;
+        var position_value = Phaser.Math.Between(0, 1024);
+        this.moving_speed=840;
         this.a = false;
         this.count=0;
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
@@ -42,23 +42,22 @@ class baking extends Phaser.Scene{
 
         
         this.bg = this.add.image(0, 0, 'kitchenTable').setOrigin(0);
-        this.baking = this.add.image(config.width/2, config.height/2, 'bake');
-
+        this.baking = this.add.sprite(config.width/2, config.height/2, 'bake');
 
         this.anims.create({
             key: 'bake',
             frames: this.anims.generateFrameNumbers('bake', {frames: [0, 1, 2, 3]}),
-            framerate: 8,
+            frameRate: 8,
             repeat: 0
         });
 
 
         
-        this.block = this.physics.add.image(512,40,'dangerBar');
+        this.block = this.add.image(512,40,'dangerBar');
         this.rd=this.physics.add.image(position_value,40,'safeZone');
         this.mb=this.physics.add.image(300,30,'movingBlock');
 
-        this.scoreText=this.add.text(20,90,'SCORE:5', scoreConfig);
+        this.scoreText=this.add.text(20,90,'SCORE:0', scoreConfig);
         this.physics.add.collider(this.mb,this.i_1);
         this.physics.add.collider(this.mb,this.i_2);   
         this.mb.setVelocity(this.moving_speed,0);
@@ -80,17 +79,16 @@ class baking extends Phaser.Scene{
 
         this.a = this.mb.body.touching.none ? false :true;
         if(Phaser.Input.Keyboard.JustDown(keySPACE) && this.a){
-            //this.baking.anims.play('bake');
+            this.baking.anims.play('bake');
             //this.scene.start('testScene');//change this <-
             this.mb.setPosition(330,40);
             this.rd.setPosition(Phaser.Math.Between(0, 600),40);
             this.count++;
-            this.scoreText.setText('Remaining temperature fixed:'+(5-this.count));
-            this.moving_speed=this.moving_speed+400;
+            this.scoreText.setText('SCORE:'+this.count);
+            this.moving_speed=this.moving_speed+100;
             this.mb.setVelocity(this.moving_speed,0);
             console.log(this.moving_speed);
         }
-
 
         if(this.count == 5){
             this.scene.start('decoratingScene', this.time);    
