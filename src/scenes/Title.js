@@ -6,7 +6,7 @@ class Title extends Phaser.Scene {
     preload() {
 
         this.load.image('kitchen','./assets/kitchen.png');
-        this.load.image('kitchenBackground', './assets/kitchentable.png');
+        this.load.image('kitchenBackground', './assets/kitchenTable.png');
 
         // load assets
         this.load.path = "./assets/";
@@ -33,7 +33,7 @@ class Title extends Phaser.Scene {
         //this.add.tileSprite(0, 0, 1200, 700, 'kitchenBackground').setOrigin(0, 0);
 
         // add title text
-        this.add.bitmapText(centerX, centerY - 32, 'gem_font', 'Welcome to Bakery of Hell', 32).setOrigin(0.5);
+        this.add.bitmapText(centerX, centerY - 32, 'gem_font', 'Welcome to Hells Bakery', 32).setOrigin(0.5);
         this.add.bitmapText(centerX, centerY, 'gem_font', 'Press SPACE to talk with Gorgon Baguette', 16).setOrigin(0.5);
         this.add.bitmapText(centerX, centerY + 32, 'gem_font', 'Press S to skip and get Start', 16).setOrigin(0.5);
         this.add.bitmapText(centerX, centerY + 64, 'gem_font', 'Press Z to go back to menu', 16).setOrigin(0.5);
