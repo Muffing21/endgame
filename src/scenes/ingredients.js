@@ -68,35 +68,35 @@ class ingredients extends Phaser.Scene{
         this.fruit2=this.physics.add.image(200,50,'egg').setScale(this.AVATAR_SCALE).setInteractive({draggable: true});
         
         
-        this.fruit.setVelocity(Phaser.Math.Between(0, 500),Phaser.Math.Between(0, 500));
+        this.fruit.setVelocity(Phaser.Math.Between(0, 200),Phaser.Math.Between(0, 200));
         this.fruit.setBounce(1,1);
         this.fruit.setCollideWorldBounds(true);
         
-        this.food.setVelocity(Phaser.Math.Between(0, 500),Phaser.Math.Between(0, 500));
+        this.food.setVelocity(Phaser.Math.Between(0, 200),Phaser.Math.Between(0, 200));
         this.food.setBounce(1,1);
         this.food.setCollideWorldBounds(true);
 
-        this.fruit2.setVelocity(Phaser.Math.Between(0, 500),Phaser.Math.Between(0, 500));
+        this.fruit2.setVelocity(Phaser.Math.Between(0, 200),Phaser.Math.Between(0, 200));
         this.fruit2.setBounce(1,1);
         this.fruit2.setCollideWorldBounds(true);
         
-        this.food2.setVelocity(Phaser.Math.Between(0, 500),Phaser.Math.Between(0, 500));
+        this.food2.setVelocity(Phaser.Math.Between(0, 200),Phaser.Math.Between(0, 200));
         this.food2.setBounce(1,1);
         this.food2.setCollideWorldBounds(true);
 
-        this.vanilla.setVelocity(Phaser.Math.Between(0, 500),Phaser.Math.Between(0, 500));
+        this.vanilla.setVelocity(Phaser.Math.Between(0, 200),Phaser.Math.Between(0, 200));
         this.vanilla.setBounce(1,1);
         this.vanilla.setCollideWorldBounds(true);
 
-        this.bp.setVelocity(Phaser.Math.Between(0, 500),Phaser.Math.Between(0, 500));
+        this.bp.setVelocity(Phaser.Math.Between(0, 200),Phaser.Math.Between(0, 200));
         this.bp.setBounce(1,1);
         this.bp.setCollideWorldBounds(true);
 
-        this.soda.setVelocity(Phaser.Math.Between(0, 500),Phaser.Math.Between(0, 500));
+        this.soda.setVelocity(Phaser.Math.Between(0, 200),Phaser.Math.Between(0, 200));
         this.soda.setBounce(1,1);
         this.soda.setCollideWorldBounds(true);
 
-        this.salt.setVelocity(Phaser.Math.Between(0, 500),Phaser.Math.Between(0, 500));
+        this.salt.setVelocity(Phaser.Math.Between(0, 200),Phaser.Math.Between(0, 200));
         this.salt.setBounce(1,1);
         this.salt.setCollideWorldBounds(true);
 

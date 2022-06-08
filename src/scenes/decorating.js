@@ -57,27 +57,27 @@ class decorating extends Phaser.Scene{
         
         this.salt=this.physics.add.image(200,50,'candle').setInteractive({draggable: true});
                 
-        this.fruit.setVelocity(Phaser.Math.Between(0, 500),Phaser.Math.Between(0, 300));
+        this.fruit.setVelocity(Phaser.Math.Between(0, 200),Phaser.Math.Between(0, 200));
         this.fruit.setBounce(1,1);
         this.fruit.setCollideWorldBounds(true);
         
-        this.food.setVelocity(Phaser.Math.Between(0, 500),Phaser.Math.Between(0, 300));
+        this.food.setVelocity(Phaser.Math.Between(0, 200),Phaser.Math.Between(0, 200));
         this.food.setBounce(1,1);
         this.food.setCollideWorldBounds(true);
 
-        this.vanilla.setVelocity(Phaser.Math.Between(0, 500),Phaser.Math.Between(0, 300));
+        this.vanilla.setVelocity(Phaser.Math.Between(0, 200),Phaser.Math.Between(0, 200));
         this.vanilla.setBounce(1,1);
         this.vanilla.setCollideWorldBounds(true);
 
-        this.bp.setVelocity(Phaser.Math.Between(0, 500),Phaser.Math.Between(0, 300));
+        this.bp.setVelocity(Phaser.Math.Between(0, 200),Phaser.Math.Between(0, 200));
         this.bp.setBounce(1,1);
         this.bp.setCollideWorldBounds(true);
 
-        this.soda.setVelocity(Phaser.Math.Between(0, 500),Phaser.Math.Between(0, 300));
+        this.soda.setVelocity(Phaser.Math.Between(0, 200),Phaser.Math.Between(0, 200));
         this.soda.setBounce(1,1);
         this.soda.setCollideWorldBounds(true);
 
-        this.salt.setVelocity(Phaser.Math.Between(0, 500),Phaser.Math.Between(0, 300));
+        this.salt.setVelocity(Phaser.Math.Between(0, 200),Phaser.Math.Between(0, 200));
         this.salt.setBounce(1,1);
         this.salt.setCollideWorldBounds(true);
 
